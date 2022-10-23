@@ -5,22 +5,22 @@
   
 
   
-  <title>黑马可视化项目学习 | xiol个人博客</title>
+  <title>黑马可视化项目学习笔记 | xiol个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="1.1 基础版1.1.1 Echarts快速上手 操作步骤 引入echarts.js文件 准备一个呈现图表的盒子 初始化Echarts实例的对象 将配置项设置给Echarts实例对象    1.1.2 柱状图快速实现 常见效果 标记 最大值、最小值 markPoint   1234567891011121314151617series: [    &amp;#123;        &#x2F;&#x2F; 标记：最大值、最">
 <meta property="og:type" content="article">
-<meta property="og:title" content="黑马可视化项目学习">
+<meta property="og:title" content="黑马可视化项目学习笔记">
 <meta property="og:url" content="http://example.com/2022/10/22/%E9%BB%91%E9%A9%AC%E5%8F%AF%E8%A7%86%E5%8C%96%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="xiol个人博客">
 <meta property="og:description" content="1.1 基础版1.1.1 Echarts快速上手 操作步骤 引入echarts.js文件 准备一个呈现图表的盒子 初始化Echarts实例的对象 将配置项设置给Echarts实例对象    1.1.2 柱状图快速实现 常见效果 标记 最大值、最小值 markPoint   1234567891011121314151617series: [    &amp;#123;        &#x2F;&#x2F; 标记：最大值、最">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2022/10/22/%E9%BB%91%E9%A9%AC%E5%8F%AF%E8%A7%86%E5%8C%96%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0/01_Base_Study/img/01_Echarts%E5%B8%B8%E8%A7%81%E5%9B%BE%E8%A1%A8%E5%8F%8A%E5%85%B6%E5%B8%B8%E8%A7%81%E9%85%8D%E7%BD%AE%E6%80%BB%E7%BB%93.png">
+<meta property="og:image" content="http://example.com/2022/10/22/images/01_Echarts%E5%B8%B8%E8%A7%81%E5%9B%BE%E8%A1%A8%E5%8F%8A%E5%85%B6%E5%B8%B8%E8%A7%81%E9%85%8D%E7%BD%AE%E6%80%BB%E7%BB%93.png">
 <meta property="article:published_time" content="2022-10-22T13:56:28.000Z">
-<meta property="article:modified_time" content="2022-10-22T13:57:35.184Z">
+<meta property="article:modified_time" content="2022-10-23T02:05:22.842Z">
 <meta property="article:author" content="Xiol">
-<meta property="article:tag" content="echarts">
+<meta property="article:tag" content="echarts nodejs Koa2">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2022/10/22/%E9%BB%91%E9%A9%AC%E5%8F%AF%E8%A7%86%E5%8C%96%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0/01_Base_Study/img/01_Echarts%E5%B8%B8%E8%A7%81%E5%9B%BE%E8%A1%A8%E5%8F%8A%E5%85%B6%E5%B8%B8%E8%A7%81%E9%85%8D%E7%BD%AE%E6%80%BB%E7%BB%93.png">
+<meta name="twitter:image" content="http://example.com/2022/10/22/images/01_Echarts%E5%B8%B8%E8%A7%81%E5%9B%BE%E8%A1%A8%E5%8F%8A%E5%85%B6%E5%B8%B8%E8%A7%81%E9%85%8D%E7%BD%AE%E6%80%BB%E7%BB%93.png">
   
     <link rel="alternate" href="/atom.xml" title="xiol个人博客" type="application/atom+xml">
   
@@ -83,7 +83,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      黑马可视化项目学习
+      黑马可视化项目学习笔记
     </h1>
   
 
@@ -123,7 +123,7 @@
 </ul>
 </li>
 <li>横向柱状图<ul>
-<li>更改x轴y轴的角色<h5 id="1-1-3-通用配置讲解-–标题"><a href="#1-1-3-通用配置讲解-–标题" class="headerlink" title="1.1.3 通用配置讲解 –标题"></a>1.1.3 通用配置讲解 –标题</h5></li>
+<li>更改x轴y轴的角色</li>
 </ul>
 </li>
 </ol>
@@ -131,7 +131,7 @@
 </ul>
 </li>
 </ul>
-<ol>
+<h5 id="1-1-3-通用配置讲解-–标题"><a href="#1-1-3-通用配置讲解-–标题" class="headerlink" title="1.1.3 通用配置讲解 –标题"></a>1.1.3 通用配置讲解 –标题</h5><ol>
 <li>文字样式<ul>
 <li>text 、 textStyle  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">title</span>: &#123;</span><br><span class="line">    <span class="attr">text</span>: <span class="string">&#x27;成绩展示&#x27;</span>,</span><br><span class="line">    <span class="comment">// 文字样式</span></span><br><span class="line">    <span class="attr">textStyle</span>: &#123;</span><br><span class="line">        <span class="attr">color</span>: <span class="string">&#x27;red&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;                   </span><br></pre></td></tr></table></figure></li>
 </ul>
@@ -141,10 +141,12 @@
 </ul>
 </li>
 <li>标题位置<ul>
-<li>left、top  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">title</span>: &#123;</span><br><span class="line">    <span class="comment">// 标题位置</span></span><br><span class="line">    <span class="attr">left</span>: <span class="number">50</span>,</span><br><span class="line">    <span class="attr">top</span>: <span class="number">10</span></span><br><span class="line">&#125;                   </span><br></pre></td></tr></table></figure>
-<h5 id="1-1-4-通用配置讲解-–提示框"><a href="#1-1-4-通用配置讲解-–提示框" class="headerlink" title="1.1.4 通用配置讲解 –提示框"></a>1.1.4 通用配置讲解 –提示框</h5>tooltip:提示框组件，用于配置鼠标滑过或点击图表是的显示框</li>
+<li>left、top  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">title</span>: &#123;</span><br><span class="line">    <span class="comment">// 标题位置</span></span><br><span class="line">    <span class="attr">left</span>: <span class="number">50</span>,</span><br><span class="line">    <span class="attr">top</span>: <span class="number">10</span></span><br><span class="line">&#125;                   </span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
+</ol>
+<h5 id="1-1-4-通用配置讲解-–提示框"><a href="#1-1-4-通用配置讲解-–提示框" class="headerlink" title="1.1.4 通用配置讲解 –提示框"></a>1.1.4 通用配置讲解 –提示框</h5><p>tooltip:提示框组件，用于配置鼠标滑过或点击图表是的显示框</p>
+<ol>
 <li>触发类型：<ul>
 <li>trigger<ul>
 <li>item 移到柱子内部展示</li>
@@ -164,13 +166,13 @@
 <li>格式化：<ul>
 <li>formatter<ul>
 <li>字符串模板</li>
-<li>回调函数<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">tooltip</span>: &#123;</span><br><span class="line">  <span class="comment">// formatter: &#x27;&#123;b&#125;的成绩是&#123;c&#125;&#x27; , // 字符串模板</span></span><br><span class="line">  <span class="attr">formatter</span>: <span class="keyword">function</span> (<span class="params">arg</span>)&#123; <span class="comment">// 回调函数</span></span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(arg)</span><br><span class="line">      <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;arg.name&#125;</span>的分数是：<span class="subst">$&#123;arg.data&#125;</span>`</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="1-1-5-通用配置讲解-–工具栏"><a href="#1-1-5-通用配置讲解-–工具栏" class="headerlink" title="1.1.5 通用配置讲解 –工具栏"></a>1.1.5 通用配置讲解 –工具栏</h5>toolbox: Echarts提供的工具栏</li>
+<li>回调函数<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">tooltip</span>: &#123;</span><br><span class="line">  <span class="comment">// formatter: &#x27;&#123;b&#125;的成绩是&#123;c&#125;&#x27; , // 字符串模板</span></span><br><span class="line">  <span class="attr">formatter</span>: <span class="keyword">function</span> (<span class="params">arg</span>)&#123; <span class="comment">// 回调函数</span></span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(arg)</span><br><span class="line">      <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;arg.name&#125;</span>的分数是：<span class="subst">$&#123;arg.data&#125;</span>`</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
 </ul>
 </li>
 </ol>
+<h5 id="1-1-5-通用配置讲解-–工具栏"><a href="#1-1-5-通用配置讲解-–工具栏" class="headerlink" title="1.1.5 通用配置讲解 –工具栏"></a>1.1.5 通用配置讲解 –工具栏</h5><p>toolbox: Echarts提供的工具栏</p>
 <ul>
 <li>显示工具栏按钮 feature<ol>
 <li>导出图片<ul>
@@ -198,6 +200,7 @@
 </ul>
 <h5 id="1-1-6-通用配置讲解-–图例"><a href="#1-1-6-通用配置讲解-–图例" class="headerlink" title="1.1.6 通用配置讲解 –图例"></a>1.1.6 通用配置讲解 –图例</h5><p>legend: 图例，用于筛选系列，需要和series配合使用</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">legend</span>:&#123;</span><br><span class="line">    <span class="attr">data</span>: [<span class="string">&#x27;语文成绩&#x27;</span>, <span class="string">&#x27;数学成绩&#x27;</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h5 id="1-1-7-折线图的快速实现及常见效果"><a href="#1-1-7-折线图的快速实现及常见效果" class="headerlink" title="1.1.7 折线图的快速实现及常见效果"></a>1.1.7 折线图的快速实现及常见效果</h5><ul>
 <li>常见效果<ul>
 <li>标记：<ul>
@@ -246,8 +249,7 @@
 </li>
 </ul>
 <h5 id="1-1-8-散点图的快速实现及常见效果"><a href="#1-1-8-散点图的快速实现及常见效果" class="headerlink" title="1.1.8 散点图的快速实现及常见效果"></a>1.1.8 散点图的快速实现及常见效果</h5><ul>
-<li><p>常见效果</p>
-<ul>
+<li>常见效果<ul>
 <li>气泡效果：<ul>
 <li>散点的大小不同<ul>
 <li>symbolSize  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">series</span>:[</span><br><span class="line">          &#123;</span><br><span class="line">              <span class="comment">// 设置散点的大小  可以是数值，可以是回调函数</span></span><br><span class="line">              <span class="comment">// symbolSize: 30,  // 数值</span></span><br><span class="line">              <span class="attr">symbolSize</span>: <span class="keyword">function</span> (<span class="params">arg</span>) &#123;</span><br><span class="line">                  <span class="keyword">const</span> height = arg[<span class="number">0</span>] / <span class="number">100</span>; <span class="comment">// 米</span></span><br><span class="line">                  <span class="keyword">const</span> weight = arg[<span class="number">1</span>]; <span class="comment">//kg</span></span><br><span class="line">                  <span class="keyword">const</span> bmi = weight / (height * height);</span><br><span class="line">                  <span class="keyword">return</span> bmi &gt; <span class="number">28</span> ? <span class="number">20</span> : <span class="number">5</span></span><br><span class="line">              &#125;                        </span><br><span class="line">          &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure></li>
@@ -259,13 +261,33 @@
 </li>
 </ul>
 </li>
-<li>涟漪动画效果</li>
+<li>涟漪动画效果<ul>
 <li>type:effectScatter</li>
 <li>showEffectOn: ‘emphasis’,</li>
-<li>rippleEffect:{}</li>
+<li>rippleEffect:{}<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">series</span>:[</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="attr">type</span>: <span class="string">&#x27;effectScatter&#x27;</span>, <span class="comment">// 散点图涟漪效果</span></span><br><span class="line">                <span class="attr">rippleEffect</span>:&#123;</span><br><span class="line">                    <span class="attr">scale</span>: <span class="number">10</span> <span class="comment">// 展示圆圈的大小</span></span><br><span class="line">                &#125;,</span><br><span class="line">                <span class="attr">showEffectOn</span>: <span class="string">&#x27;emphasis&#x27;</span>, <span class="comment">// 展示涟漪效果时机 emphasis： 接触时渲染 render： 更新就是就渲染</span></span><br><span class="line">            &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure></li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">    <span class="attr">series</span>:[</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="attr">type</span>: <span class="string">&#x27;effectScatter&#x27;</span>, <span class="comment">// 散点图涟漪效果</span></span><br><span class="line">                    <span class="attr">rippleEffect</span>:&#123;</span><br><span class="line">                        <span class="attr">scale</span>: <span class="number">10</span> <span class="comment">// 展示圆圈的大小</span></span><br><span class="line">                    &#125;,</span><br><span class="line">                    <span class="attr">showEffectOn</span>: <span class="string">&#x27;emphasis&#x27;</span>, <span class="comment">// 展示涟漪效果时机 emphasis： 接触时渲染 render： 更新就是就渲染</span></span><br><span class="line">                &#125;</span><br><span class="line">    ]</span><br><span class="line">  <span class="string">``</span><span class="string">`   </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">##### 1.1.9 直角坐标系的常用配置</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">1. 直角坐标系图表</span></span><br><span class="line"><span class="string">    1. 柱状图</span></span><br><span class="line"><span class="string">    2. 折线图</span></span><br><span class="line"><span class="string">    3. 散点图</span></span><br><span class="line"><span class="string">2. 相关常用配置</span></span><br><span class="line"><span class="string">    1. 网格：</span></span><br><span class="line"><span class="string">        * grid</span></span><br><span class="line"><span class="string">            * 显示 show</span></span><br><span class="line"><span class="string">            * 边框 borderWidth、borderColor</span></span><br><span class="line"><span class="string">            * 位置 left、top、right、bottom</span></span><br><span class="line"><span class="string">            * 大小 width、height</span></span><br><span class="line"><span class="string">                `</span><span class="string">``</span>js</span><br><span class="line">                    <span class="comment">// 网格配置</span></span><br><span class="line">                   <span class="attr">grid</span>: &#123;</span><br><span class="line">                   <span class="attr">show</span>: <span class="literal">true</span>, <span class="comment">// 展示网格</span></span><br><span class="line">                   <span class="attr">borderWidth</span>: <span class="number">10</span>, <span class="comment">// 边框宽度</span></span><br><span class="line">                   <span class="attr">borderColor</span>: <span class="string">&#x27;red&#x27;</span>, <span class="comment">// 边框颜色</span></span><br><span class="line">                   <span class="attr">left</span>: <span class="number">120</span>, <span class="comment">// 网格定位：左</span></span><br><span class="line">                   <span class="attr">top</span>: <span class="number">120</span>, <span class="comment">// 网格定位:上</span></span><br><span class="line">                   <span class="attr">width</span>: <span class="number">300</span>, <span class="comment">//网格宽度</span></span><br><span class="line">                   <span class="attr">height</span>: <span class="number">150</span> <span class="comment">// 网格高度</span></span><br><span class="line">                   &#125;</span><br></pre></td></tr></table></figure>
-<ol start="2">
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="1-1-9-直角坐标系的常用配置"><a href="#1-1-9-直角坐标系的常用配置" class="headerlink" title="1.1.9 直角坐标系的常用配置"></a>1.1.9 直角坐标系的常用配置</h5><ol>
+<li>直角坐标系图表<ol>
+<li>柱状图</li>
+<li>折线图</li>
+<li>散点图</li>
+</ol>
+</li>
+<li>相关常用配置<ol>
+<li>网格：<ul>
+<li>grid<ul>
+<li>显示 show</li>
+<li>边框 borderWidth、borderColor</li>
+<li>位置 left、top、right、bottom</li>
+<li>大小 width、height  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">// 网格配置</span></span><br><span class="line"><span class="attr">grid</span>: &#123;</span><br><span class="line"><span class="attr">show</span>: <span class="literal">true</span>, <span class="comment">// 展示网格</span></span><br><span class="line"><span class="attr">borderWidth</span>: <span class="number">10</span>, <span class="comment">// 边框宽度</span></span><br><span class="line"><span class="attr">borderColor</span>: <span class="string">&#x27;red&#x27;</span>, <span class="comment">// 边框颜色</span></span><br><span class="line"><span class="attr">left</span>: <span class="number">120</span>, <span class="comment">// 网格定位：左</span></span><br><span class="line"><span class="attr">top</span>: <span class="number">120</span>, <span class="comment">// 网格定位:上</span></span><br><span class="line"><span class="attr">width</span>: <span class="number">300</span>, <span class="comment">//网格宽度</span></span><br><span class="line"><span class="attr">height</span>: <span class="number">150</span> <span class="comment">// 网格高度</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
 <li>坐标轴：<ul>
 <li>axis<ul>
 <li>类型 type<ul>
@@ -305,7 +327,7 @@
 </li>
 </ol>
 </li>
-</ul>
+</ol>
 <h5 id="1-1-10-饼图的快速实现及常见效果"><a href="#1-1-10-饼图的快速实现及常见效果" class="headerlink" title="1.1.10 饼图的快速实现及常见效果"></a>1.1.10 饼图的快速实现及常见效果</h5><ol>
 <li>饼图的常见效果<ol>
 <li>显示数值<ul>
@@ -326,14 +348,15 @@
 </ul>
 </li>
 <li>选中偏移量<ul>
-<li>selectedOffset  设置数值  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> <span class="attr">series</span>: [</span><br><span class="line">     &#123;                     </span><br><span class="line">         <span class="comment">// 设置选中效果</span></span><br><span class="line">         <span class="attr">selectedMode</span>: <span class="string">&#x27;single&#x27;</span>, <span class="comment">// single:选中区域偏离原点一小段距离, multiple多个区域偏离原点</span></span><br><span class="line">         <span class="attr">selectedOffset</span>: <span class="number">30</span> <span class="comment">// 偏离原点长度</span></span><br><span class="line">     &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<h5 id="1-1-11-地图的快速实现及常见效果"><a href="#1-1-11-地图的快速实现及常见效果" class="headerlink" title="1.1.11 地图的快速实现及常见效果"></a>1.1.11 地图的快速实现及常见效果</h5></li>
+<li>selectedOffset  设置数值  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> <span class="attr">series</span>: [</span><br><span class="line">     &#123;                     </span><br><span class="line">         <span class="comment">// 设置选中效果</span></span><br><span class="line">         <span class="attr">selectedMode</span>: <span class="string">&#x27;single&#x27;</span>, <span class="comment">// single:选中区域偏离原点一小段距离, multiple多个区域偏离原点</span></span><br><span class="line">         <span class="attr">selectedOffset</span>: <span class="number">30</span> <span class="comment">// 偏离原点长度</span></span><br><span class="line">     &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
 </ul>
 </li>
 </ol>
 </li>
+</ol>
+<h5 id="1-1-11-地图的快速实现及常见效果"><a href="#1-1-11-地图的快速实现及常见效果" class="headerlink" title="1.1.11 地图的快速实现及常见效果"></a>1.1.11 地图的快速实现及常见效果</h5><ol>
 <li>矢量地图的实现步骤<ol>
 <li>Echarts最基本的代码结构<ul>
 <li>引入js文件，创建DOM容器、初始化对象、设置 option</li>
@@ -429,10 +452,11 @@
 <li>常见配置<ol>
 <li>显示数值：label<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">series</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">type</span>: <span class="string">&#x27;radar&#x27;</span>, <span class="comment">// radar 雷达图</span></span><br><span class="line">      <span class="attr">label</span>: &#123; <span class="comment">// 标签设置</span></span><br><span class="line">          <span class="attr">show</span>: <span class="literal">true</span>, <span class="comment">// 显示标签数值</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure></li>
 <li>区域面积： areaStyle<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">series</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="comment">// 显示区域</span></span><br><span class="line">      <span class="attr">areaStyle</span>:&#123;&#125;,  <span class="comment">// 将每个雷达图形成阴影面积                </span></span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure></li>
-<li>绘制类型： shape <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">radar</span>: &#123;</span><br><span class="line">    <span class="attr">indicator</span>: dataMax, <span class="comment">// 指示器:设置每个维度的最大值</span></span><br><span class="line">    <span class="attr">shape</span>: <span class="string">&#x27;circle&#x27;</span><span class="comment">// 配置雷达图最外层的图形。 circle:圆 polygon:多边形</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="1-1-13-仪表盘的快速实现及常见效果"><a href="#1-1-13-仪表盘的快速实现及常见效果" class="headerlink" title="1.1.13 仪表盘的快速实现及常见效果"></a>1.1.13 仪表盘的快速实现及常见效果</h5></li>
+<li>绘制类型： shape <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">radar</span>: &#123;</span><br><span class="line">    <span class="attr">indicator</span>: dataMax, <span class="comment">// 指示器:设置每个维度的最大值</span></span><br><span class="line">    <span class="attr">shape</span>: <span class="string">&#x27;circle&#x27;</span><span class="comment">// 配置雷达图最外层的图形。 circle:圆 polygon:多边形</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ol>
 </li>
+</ol>
+<h5 id="1-1-13-仪表盘的快速实现及常见效果"><a href="#1-1-13-仪表盘的快速实现及常见效果" class="headerlink" title="1.1.13 仪表盘的快速实现及常见效果"></a>1.1.13 仪表盘的快速实现及常见效果</h5><ol>
 <li>实现步骤<ol>
 <li>Echarts最基础的代码结构<ul>
 <li>引入js文件、DOM容器、初始化对象、设置option</li>
@@ -455,10 +479,9 @@
 </ol>
 </li>
 </ol>
-<h5 id="1-1-14-Echarts常见图表及其常见配置总结"><a href="#1-1-14-Echarts常见图表及其常见配置总结" class="headerlink" title="1.1.14 Echarts常见图表及其常见配置总结"></a>1.1.14 Echarts常见图表及其常见配置总结</h5><p><img src="01_Base_Study/img/01_Echarts%E5%B8%B8%E8%A7%81%E5%9B%BE%E8%A1%A8%E5%8F%8A%E5%85%B6%E5%B8%B8%E8%A7%81%E9%85%8D%E7%BD%AE%E6%80%BB%E7%BB%93.png" alt="img.png"></p>
+<h5 id="1-1-14-Echarts常见图表及其常见配置总结"><a href="#1-1-14-Echarts常见图表及其常见配置总结" class="headerlink" title="1.1.14 Echarts常见图表及其常见配置总结"></a>1.1.14 Echarts常见图表及其常见配置总结</h5><p><img src="../images/01_Echarts%E5%B8%B8%E8%A7%81%E5%9B%BE%E8%A1%A8%E5%8F%8A%E5%85%B6%E5%B8%B8%E8%A7%81%E9%85%8D%E7%BD%AE%E6%80%BB%E7%BB%93.png" alt="img.png"></p>
 <h4 id="1-2-Echarts的高级使用"><a href="#1-2-Echarts的高级使用" class="headerlink" title="1.2 Echarts的高级使用"></a>1.2 Echarts的高级使用</h4><h5 id="1-2-1-显示相关"><a href="#1-2-1-显示相关" class="headerlink" title="1.2.1 显示相关"></a>1.2.1 显示相关</h5><ol>
-<li><p>主题</p>
-<ol>
+<li>主题<ol>
 <li>内置主题<ul>
 <li>Echarts中默认了两套主题：light、dark</li>
 <li>在初始化对象方法init中可以指明<ul>
@@ -483,8 +506,7 @@
 </li>
 </ul>
 </li>
-<li><p>调色盘: 遵循就近原则</p>
-<ol>
+<li>调色盘: 遵循就近原则<ol>
 <li>主题调色盘</li>
 <li>全局调色盘<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">color</span>: [<span class="string">&#x27;red&#x27;</span>, <span class="string">&#x27;green&#x27;</span>, <span class="string">&#x27;blue&#x27;</span>, <span class="string">&#x27;skyblue&#x27;</span>, <span class="string">&#x27;purple&#x27;</span>] <span class="comment">// 全局调色盘</span></span><br></pre></td></tr></table></figure></li>
 <li>局部调色盘 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">series</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attr">color</span>: [<span class="string">&#x27;pink&#x27;</span>, <span class="string">&#x27;yellow&#x27;</span>, <span class="string">&#x27;black&#x27;</span>, <span class="string">&#x27;orange&#x27;</span>, <span class="string">&#x27;red&#x27;</span>],</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure></li>
@@ -495,8 +517,7 @@
 </li>
 </ol>
 </li>
-<li><p>样式</p>
-<ol>
+<li>样式<ol>
 <li>直接样式<ul>
 <li>itemStyle、textStyle、lineStyle、areaStyle、label</li>
 </ul>
@@ -507,18 +528,19 @@
 </li>
 </ol>
 </li>
-<li><p>自适应</p>
-<ul>
+<li>自适应<ul>
 <li>实现步骤<ol>
 <li>监听窗口大小变化事件</li>
 <li>在事件处理函数中调用ECharts实例对象的resize即可<ul>
-<li>window.onresize = function(){ myChart.resize();}<h5 id="1-2-2-动画的使用"><a href="#1-2-2-动画的使用" class="headerlink" title="1.2.2 动画的使用"></a>1.2.2 动画的使用</h5></li>
+<li>window.onresize = function(){ myChart.resize();}</li>
 </ul>
 </li>
 </ol>
 </li>
 </ul>
 </li>
+</ol>
+<h5 id="1-2-2-动画的使用"><a href="#1-2-2-动画的使用" class="headerlink" title="1.2.2 动画的使用"></a>1.2.2 动画的使用</h5><ol>
 <li><p>加载动画</p>
 <ol>
 <li>显示加载动画<ul>
@@ -651,11 +673,11 @@
 <li>后台开发</li>
 <li>结合Vue开发图表组件</li>
 <li>WebSocket实现后台数据推送</li>
-<li>主题切换\页面合并\全屏切换…<h4 id="2-1-后台开发-Koa2"><a href="#2-1-后台开发-Koa2" class="headerlink" title="2.1 后台开发 Koa2"></a>2.1 后台开发 Koa2</h4></li>
+<li>主题切换\页面合并\全屏切换…</li>
 </ul>
 </li>
 </ul>
-<ol>
+<h4 id="2-1-后台开发-Koa2"><a href="#2-1-后台开发-Koa2" class="headerlink" title="2.1 后台开发 Koa2"></a>2.1 后台开发 Koa2</h4><ol>
 <li>Koa2特点<ul>
 <li>支持async\await</li>
 <li>洋葱模型的中间件</li>
@@ -667,9 +689,10 @@
 <li>中间件的执行顺序符合洋葱模型</li>
 <li>内层中间件能否执行取决于外层中间件的next函数是否调用</li>
 <li>调用next函数得到的是Promise对象  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">app.<span class="title function_">use</span>(<span class="title function_">async</span>(ctx, next) =&gt;&#123;</span><br><span class="line">    <span class="comment">// 刚进入中间件想做的事情</span></span><br><span class="line">    <span class="keyword">await</span> <span class="title function_">next</span>()</span><br><span class="line">    <span class="comment">// 内层所有中间件结束之后想做的事情</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
-<li><h5 id="2-1-1-Koa2快速上手"><a href="#2-1-1-Koa2快速上手" class="headerlink" title="2.1.1 Koa2快速上手"></a>2.1.1 Koa2快速上手</h5></li>
 </ul>
 </li>
+</ol>
+<h5 id="2-1-1-Koa2快速上手"><a href="#2-1-1-Koa2快速上手" class="headerlink" title="2.1.1 Koa2快速上手"></a>2.1.1 Koa2快速上手</h5><ol>
 <li>检查node的环境<ul>
 <li>node -v</li>
 </ul>
@@ -692,10 +715,11 @@
 </ol>
 </li>
 <li>启动服务器<ul>
-<li>node app.js  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1、引入并创建Koa对象</span></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">Koa</span> = <span class="built_in">require</span>(<span class="string">&#x27;koa&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> <span class="title class_">Koa</span>();</span><br><span class="line"><span class="comment">// 2、编写响应函数(中间件)</span></span><br><span class="line"><span class="comment">// ctx: 上下文，web容器， ctx.request   ctx.response</span></span><br><span class="line"><span class="comment">// next: 下一个中间件，下一层中间件是否能够得到执行，取决于next这个函数有没有调用</span></span><br><span class="line">app.<span class="title function_">use</span>(<span class="function">(<span class="params">ctx, next</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(ctx.<span class="property">request</span>.<span class="property">url</span>);</span><br><span class="line">    ctx.<span class="property">response</span>.<span class="property">body</span> = <span class="string">&#x27;hello world&#x27;</span>;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 3、绑定端口号发布服务 3000</span></span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
-<h4 id="2-1-2-后台项目目标及步骤"><a href="#2-1-2-后台项目目标及步骤" class="headerlink" title="2.1.2 后台项目目标及步骤"></a>2.1.2 后台项目目标及步骤</h4></li>
+<li>node app.js  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1、引入并创建Koa对象</span></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">Koa</span> = <span class="built_in">require</span>(<span class="string">&#x27;koa&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> <span class="title class_">Koa</span>();</span><br><span class="line"><span class="comment">// 2、编写响应函数(中间件)</span></span><br><span class="line"><span class="comment">// ctx: 上下文，web容器， ctx.request   ctx.response</span></span><br><span class="line"><span class="comment">// next: 下一个中间件，下一层中间件是否能够得到执行，取决于next这个函数有没有调用</span></span><br><span class="line">app.<span class="title function_">use</span>(<span class="function">(<span class="params">ctx, next</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(ctx.<span class="property">request</span>.<span class="property">url</span>);</span><br><span class="line">    ctx.<span class="property">response</span>.<span class="property">body</span> = <span class="string">&#x27;hello world&#x27;</span>;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 3、绑定端口号发布服务 3000</span></span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
+</ol>
+<h4 id="2-1-2-后台项目目标及步骤"><a href="#2-1-2-后台项目目标及步骤" class="headerlink" title="2.1.2 后台项目目标及步骤"></a>2.1.2 后台项目目标及步骤</h4><ol>
 <li>目标<ol>
 <li>计算服务器处理请求的总耗时</li>
 <li>在响应头上加上相应内容的mime类型</li>
@@ -719,17 +743,60 @@
 </ul>
 </li>
 <li>utils/<ul>
-<li>file_utils.js  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line">                        <span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line">                        <span class="variable language_">module</span>.<span class="property">exports</span>.<span class="property">getFileJsonData</span> = <span class="function">(<span class="params">filePath</span>) =&gt;</span>&#123;</span><br><span class="line">                        <span class="comment">// 根据文件路径读取文件的内容</span></span><br><span class="line">                            <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>)=&gt;</span>&#123;</span><br><span class="line">                                fs.<span class="title function_">readFile</span>(filePath, <span class="string">&#x27;utf-8&#x27;</span>, <span class="function">(<span class="params">err,data</span>) =&gt;</span>&#123;</span><br><span class="line">                                <span class="keyword">if</span>(err)&#123;</span><br><span class="line">                                    <span class="title function_">reject</span>(err);</span><br><span class="line">                                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                                    <span class="comment">// 读取文件</span></span><br><span class="line">                                    <span class="title function_">resolve</span>(data);</span><br><span class="line">                                &#125;</span><br><span class="line">                            &#125;)</span><br><span class="line">                            &#125;);</span><br><span class="line">                        &#125;</span><br><span class="line">                    <span class="string">``</span><span class="string">`            </span></span><br><span class="line"><span class="string">    2. 总耗时中间件</span></span><br><span class="line"><span class="string">    3. 响应头中间件</span></span><br><span class="line"><span class="string">    4. 业务逻辑中间件</span></span><br><span class="line"><span class="string">        * 接口</span></span><br><span class="line"><span class="string">            1. 商家销量 /api/seller</span></span><br><span class="line"><span class="string">            2. 预算开销 /api/budget</span></span><br><span class="line"><span class="string">            3. 库存信息 /api/stock</span></span><br><span class="line"><span class="string">            4. 销量趋势 /api/trend</span></span><br><span class="line"><span class="string">            5. 商家分布 /api/map</span></span><br><span class="line"><span class="string">            6. 热销商品 /api/hotproduct</span></span><br><span class="line"><span class="string">    5. 允许跨域</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">#### 2.2 前端页面开发</span></span><br><span class="line"><span class="string">##### 2.2.1 搭建项目</span></span><br><span class="line"><span class="string">1. vue-cli搭建VUE项目</span></span><br><span class="line"><span class="string">2. 删除无用代码</span></span><br><span class="line"><span class="string">3. 静态资源的引入</span></span><br><span class="line"><span class="string">4. 项目的基本配置</span></span><br><span class="line"><span class="string">5. 全局Echarts对象挂载</span></span><br><span class="line"><span class="string">6. axios的封装与挂载</span></span><br><span class="line"><span class="string">##### 2.2.2 单独图表组件开发</span></span><br><span class="line"><span class="string">1. 商家销售统计(横向柱状图)</span></span><br><span class="line"><span class="string">    1. 组件结构的设计</span></span><br><span class="line"><span class="string">    2. 布局结构的设计</span></span><br><span class="line"><span class="string">    3. 图表基本功能的实现</span></span><br><span class="line"><span class="string">    4. UI的调整</span></span><br><span class="line"><span class="string">    5. 拆分图表的option</span></span><br><span class="line"><span class="string">    6. 分辨率适配</span></span><br><span class="line"><span class="string">2. 销量趋势表(折线图)</span></span><br><span class="line"><span class="string">3. 商家分布模块(地图+散点图)</span></span><br><span class="line"><span class="string">4. 销售排行模块(柱状图)</span></span><br><span class="line"><span class="string">5. 热销商品占比模块(饼图)</span></span><br><span class="line"><span class="string">6. 库存与销量模块(圆环饼图)</span></span><br><span class="line"><span class="string">##### 2.2.3 Websocket的引入</span></span><br><span class="line"><span class="string">1. Websocket后端代码示例</span></span><br><span class="line"><span class="string">   `</span><span class="string">``</span>js</span><br><span class="line">       <span class="comment">// Websocket相关代码</span></span><br><span class="line">       <span class="comment">// 1、引入webSocket</span></span><br><span class="line">       <span class="keyword">const</span> <span class="title class_">Websocket</span> = <span class="built_in">require</span>(<span class="string">&#x27;ws&#x27;</span>)</span><br><span class="line">       <span class="comment">// 2、创建ws</span></span><br><span class="line">       <span class="keyword">const</span> wss = <span class="keyword">new</span> <span class="title class_">Websocket</span>.<span class="title class_">Server</span>(&#123;</span><br><span class="line">           <span class="attr">port</span>: <span class="number">9998</span></span><br><span class="line">       &#125;)</span><br><span class="line">       <span class="comment">// 3、监听客户端连接事件</span></span><br><span class="line">       wss.<span class="title function_">on</span>(<span class="string">&#x27;connection&#x27;</span>, <span class="function"><span class="params">client</span> =&gt;</span>&#123;</span><br><span class="line">           <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;有客户端连接成功了&#x27;</span>, client);</span><br><span class="line">           <span class="comment">// 3.1、对客户端的连接对象进行message事件的监听</span></span><br><span class="line">           <span class="comment">// msg:由客户端发送给服务端的数据</span></span><br><span class="line">           client.<span class="title function_">on</span>(<span class="string">&#x27;message&#x27;</span>, <span class="function"><span class="params">msg</span> =&gt;</span>&#123;</span><br><span class="line">               <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;客户端发送数据给服务端了&#x27;</span>, msg);</span><br><span class="line">               <span class="comment">// 3.2、服务端给客户端发送数据</span></span><br><span class="line">               client.<span class="title function_">send</span>(<span class="string">&#x27;hello socket from backend&#x27;</span>)</span><br><span class="line">           &#125;)</span><br><span class="line">       &#125;)</span><br></pre></td></tr></table></figure></li>
+<li>file_utils.js  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span>.<span class="property">getFileJsonData</span> = <span class="function">(<span class="params">filePath</span>) =&gt;</span>&#123;</span><br><span class="line"><span class="comment">// 根据文件路径读取文件的内容</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>)=&gt;</span>&#123;</span><br><span class="line">        fs.<span class="title function_">readFile</span>(filePath, <span class="string">&#x27;utf-8&#x27;</span>, <span class="function">(<span class="params">err,data</span>) =&gt;</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(err)&#123;</span><br><span class="line">            <span class="title function_">reject</span>(err);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="comment">// 读取文件</span></span><br><span class="line">            <span class="title function_">resolve</span>(data);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
 </ul>
 </li>
 </ol>
 </li>
+<li>总耗时中间件</li>
+<li>响应头中间件</li>
+<li>业务逻辑中间件<ul>
+<li>接口<ol>
+<li>商家销量 /api/seller</li>
+<li>预算开销 /api/budget</li>
+<li>库存信息 /api/stock</li>
+<li>销量趋势 /api/trend</li>
+<li>商家分布 /api/map</li>
+<li>热销商品 /api/hotproduct</li>
 </ol>
 </li>
-<li>Websocket前端代码示例<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>WebsocketDemo<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;connect&quot;</span>&gt;</span>连接<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;send&quot;</span> <span class="attr">disabled</span>&gt;</span>发送数据<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">  从服务端接收的数据如下： <span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;rev&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">      <span class="comment">/**</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">       * WebsocketDemo</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">       */</span></span></span><br><span class="line"><span class="language-javascript">      <span class="comment">// 0、初始化websocket对象</span></span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">let</span> ws = <span class="literal">null</span>;</span></span><br><span class="line"><span class="language-javascript">      <span class="comment">// 1、获取按钮相关对象</span></span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">const</span> connectObj = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;#connect&#x27;</span>)</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">const</span> sendObj = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;#send&#x27;</span>)</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">const</span> revObj = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;#rev&#x27;</span>)</span></span><br><span class="line"><span class="language-javascript">      <span class="comment">// 2、给连接Dom添加点击事件</span></span></span><br><span class="line"><span class="language-javascript">      connectObj.<span class="property">onclick</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="comment">// 2.1、创建Websocket对象</span></span></span><br><span class="line"><span class="language-javascript">          ws = <span class="keyword">new</span> <span class="title class_">WebSocket</span>(<span class="string">&#x27;ws://localhost:9998&#x27;</span>)</span></span><br><span class="line"><span class="language-javascript">          <span class="comment">// 2.2、监听连接事件</span></span></span><br><span class="line"><span class="language-javascript">          ws.<span class="property">onopen</span> = <span class="function">()=&gt;</span>&#123;</span></span><br><span class="line"><span class="language-javascript">              <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;连接服务端成功了。。。&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">              sendObj.<span class="property">disabled</span> = <span class="literal">false</span></span></span><br><span class="line"><span class="language-javascript">          &#125;</span></span><br><span class="line"><span class="language-javascript">          <span class="comment">// 2.3、监听关闭事件</span></span></span><br><span class="line"><span class="language-javascript">          ws.<span class="property">onclose</span> = <span class="function">() =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">              <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;连接服务器失败。。。&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">              sendObj.<span class="property">disabled</span> = <span class="literal">true</span></span></span><br><span class="line"><span class="language-javascript">          &#125;</span></span><br><span class="line"><span class="language-javascript">          <span class="comment">// 2.4、监听服务器发送给客户端的数据</span></span></span><br><span class="line"><span class="language-javascript">          ws.<span class="property">onmessage</span> = <span class="function"><span class="params">msg</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">              <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;接收到从服务端发送过来的数据了。。&#x27;</span>, msg);</span></span><br><span class="line"><span class="language-javascript">              revObj.<span class="property">innerHTML</span> = msg.<span class="property">data</span></span></span><br><span class="line"><span class="language-javascript">          &#125;</span></span><br><span class="line"><span class="language-javascript">          <span class="comment">// 2.5、发送数据给服务端</span></span></span><br><span class="line"><span class="language-javascript">          sendObj.<span class="property">onclick</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">              ws.<span class="title function_">send</span>(<span class="string">&#x27;hello socket from frontend&#x27;</span>)</span></span><br><span class="line"><span class="language-javascript">          &#125;</span></span><br><span class="line"><span class="language-javascript">      &#125;</span></span><br><span class="line"><span class="language-javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h5 id="2-2-4-websocket数据发送约定"><a href="#2-2-4-websocket数据发送约定" class="headerlink" title="2.2.4 websocket数据发送约定"></a>2.2.4 websocket数据发送约定</h5></li>
+</ul>
+</li>
+<li>允许跨域</li>
+</ol>
+</li>
+</ol>
+<h4 id="2-2-前端页面开发"><a href="#2-2-前端页面开发" class="headerlink" title="2.2 前端页面开发"></a>2.2 前端页面开发</h4><h5 id="2-2-1-搭建项目"><a href="#2-2-1-搭建项目" class="headerlink" title="2.2.1 搭建项目"></a>2.2.1 搭建项目</h5><ol>
+<li>vue-cli搭建VUE项目</li>
+<li>删除无用代码</li>
+<li>静态资源的引入</li>
+<li>项目的基本配置</li>
+<li>全局Echarts对象挂载</li>
+<li>axios的封装与挂载</li>
+</ol>
+<h5 id="2-2-2-单独图表组件开发"><a href="#2-2-2-单独图表组件开发" class="headerlink" title="2.2.2 单独图表组件开发"></a>2.2.2 单独图表组件开发</h5><ol>
+<li>商家销售统计(横向柱状图)<ol>
+<li>组件结构的设计</li>
+<li>布局结构的设计</li>
+<li>图表基本功能的实现</li>
+<li>UI的调整</li>
+<li>拆分图表的option</li>
+<li>分辨率适配</li>
+</ol>
+</li>
+<li>销量趋势表(折线图)</li>
+<li>商家分布模块(地图+散点图)</li>
+<li>销售排行模块(柱状图)</li>
+<li>热销商品占比模块(饼图)</li>
+<li>库存与销量模块(圆环饼图)</li>
+</ol>
+<h5 id="2-2-3-Websocket的引入"><a href="#2-2-3-Websocket的引入" class="headerlink" title="2.2.3 Websocket的引入"></a>2.2.3 Websocket的引入</h5><ol>
+<li>Websocket后端代码示例<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Websocket相关代码</span></span><br><span class="line"><span class="comment">// 1、引入webSocket</span></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">Websocket</span> = <span class="built_in">require</span>(<span class="string">&#x27;ws&#x27;</span>)</span><br><span class="line"><span class="comment">// 2、创建ws</span></span><br><span class="line"><span class="keyword">const</span> wss = <span class="keyword">new</span> <span class="title class_">Websocket</span>.<span class="title class_">Server</span>(&#123;</span><br><span class="line">    <span class="attr">port</span>: <span class="number">9998</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 3、监听客户端连接事件</span></span><br><span class="line">wss.<span class="title function_">on</span>(<span class="string">&#x27;connection&#x27;</span>, <span class="function"><span class="params">client</span> =&gt;</span>&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;有客户端连接成功了&#x27;</span>, client);</span><br><span class="line">    <span class="comment">// 3.1、对客户端的连接对象进行message事件的监听</span></span><br><span class="line">    <span class="comment">// msg:由客户端发送给服务端的数据</span></span><br><span class="line">    client.<span class="title function_">on</span>(<span class="string">&#x27;message&#x27;</span>, <span class="function"><span class="params">msg</span> =&gt;</span>&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;客户端发送数据给服务端了&#x27;</span>, msg);</span><br><span class="line">        <span class="comment">// 3.2、服务端给客户端发送数据</span></span><br><span class="line">        client.<span class="title function_">send</span>(<span class="string">&#x27;hello socket from backend&#x27;</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+<li>Websocket前端代码示例<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>WebsocketDemo<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;connect&quot;</span>&gt;</span>连接<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;send&quot;</span> <span class="attr">disabled</span>&gt;</span>发送数据<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">  从服务端接收的数据如下： <span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;rev&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">      <span class="comment">/**</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">       * WebsocketDemo</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">       */</span></span></span><br><span class="line"><span class="language-javascript">      <span class="comment">// 0、初始化websocket对象</span></span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">let</span> ws = <span class="literal">null</span>;</span></span><br><span class="line"><span class="language-javascript">      <span class="comment">// 1、获取按钮相关对象</span></span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">const</span> connectObj = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;#connect&#x27;</span>)</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">const</span> sendObj = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;#send&#x27;</span>)</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">const</span> revObj = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;#rev&#x27;</span>)</span></span><br><span class="line"><span class="language-javascript">      <span class="comment">// 2、给连接Dom添加点击事件</span></span></span><br><span class="line"><span class="language-javascript">      connectObj.<span class="property">onclick</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="comment">// 2.1、创建Websocket对象</span></span></span><br><span class="line"><span class="language-javascript">          ws = <span class="keyword">new</span> <span class="title class_">WebSocket</span>(<span class="string">&#x27;ws://localhost:9998&#x27;</span>)</span></span><br><span class="line"><span class="language-javascript">          <span class="comment">// 2.2、监听连接事件</span></span></span><br><span class="line"><span class="language-javascript">          ws.<span class="property">onopen</span> = <span class="function">()=&gt;</span>&#123;</span></span><br><span class="line"><span class="language-javascript">              <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;连接服务端成功了。。。&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">              sendObj.<span class="property">disabled</span> = <span class="literal">false</span></span></span><br><span class="line"><span class="language-javascript">          &#125;</span></span><br><span class="line"><span class="language-javascript">          <span class="comment">// 2.3、监听关闭事件</span></span></span><br><span class="line"><span class="language-javascript">          ws.<span class="property">onclose</span> = <span class="function">() =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">              <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;连接服务器失败。。。&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">              sendObj.<span class="property">disabled</span> = <span class="literal">true</span></span></span><br><span class="line"><span class="language-javascript">          &#125;</span></span><br><span class="line"><span class="language-javascript">          <span class="comment">// 2.4、监听服务器发送给客户端的数据</span></span></span><br><span class="line"><span class="language-javascript">          ws.<span class="property">onmessage</span> = <span class="function"><span class="params">msg</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">              <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;接收到从服务端发送过来的数据了。。&#x27;</span>, msg);</span></span><br><span class="line"><span class="language-javascript">              revObj.<span class="property">innerHTML</span> = msg.<span class="property">data</span></span></span><br><span class="line"><span class="language-javascript">          &#125;</span></span><br><span class="line"><span class="language-javascript">          <span class="comment">// 2.5、发送数据给服务端</span></span></span><br><span class="line"><span class="language-javascript">          sendObj.<span class="property">onclick</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">              ws.<span class="title function_">send</span>(<span class="string">&#x27;hello socket from frontend&#x27;</span>)</span></span><br><span class="line"><span class="language-javascript">          &#125;</span></span><br><span class="line"><span class="language-javascript">      &#125;</span></span><br><span class="line"><span class="language-javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h5 id="2-2-4-websocket数据发送约定"><a href="#2-2-4-websocket数据发送约定" class="headerlink" title="2.2.4 websocket数据发送约定"></a>2.2.4 websocket数据发送约定</h5><ol>
 <li>服务端接收数据约定<ol>
 <li>action 代表某项行为<ul>
 <li>getData<ul>
@@ -799,14 +866,15 @@
 </ol>
 </li>
 </ol>
-<h5 id="2-2-5-细节处理"><a href="#2-2-5-细节处理" class="headerlink" title="2.2.5 细节处理"></a>2.2.5 细节处理</h5>
+<h5 id="2-2-5-细节处理"><a href="#2-2-5-细节处理" class="headerlink" title="2.2.5 细节处理"></a>2.2.5 细节处理</h5><p>  ……</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/10/22/%E9%BB%91%E9%A9%AC%E5%8F%AF%E8%A7%86%E5%8C%96%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0/" data-id="cl9jzkhsr0002fcvh8l2z4b2k" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/10/22/%E9%BB%91%E9%A9%AC%E5%8F%AF%E8%A7%86%E5%8C%96%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0/" data-id="cl9kplezh00020svh3ggh7g92" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/echarts/" rel="tag">echarts</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/echarts-nodejs-Koa2/" rel="tag">echarts nodejs Koa2</a></li></ul>
 
     </footer>
   </div>
@@ -836,7 +904,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/echarts/" rel="tag">echarts</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/echarts-nodejs-Koa2/" rel="tag">echarts nodejs Koa2</a></li></ul>
     </div>
   </div>
 
@@ -846,7 +914,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/echarts/" style="font-size: 10px;">echarts</a>
+      <a href="/tags/echarts-nodejs-Koa2/" style="font-size: 10px;">echarts nodejs Koa2</a>
     </div>
   </div>
 
@@ -868,7 +936,7 @@
       <ul>
         
           <li>
-            <a href="/2022/10/22/%E9%BB%91%E9%A9%AC%E5%8F%AF%E8%A7%86%E5%8C%96%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0/">黑马可视化项目学习</a>
+            <a href="/2022/10/22/%E9%BB%91%E9%A9%AC%E5%8F%AF%E8%A7%86%E5%8C%96%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0/">黑马可视化项目学习笔记</a>
           </li>
         
           <li>
