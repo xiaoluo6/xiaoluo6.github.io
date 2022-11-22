@@ -155,6 +155,99 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-docker相关指令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/11/22/docker%E7%9B%B8%E5%85%B3%E6%8C%87%E4%BB%A4/">docker相关指令</a>
+    </h1>
+  
+
+        
+        <a href="/2022/11/22/docker%E7%9B%B8%E5%85%B3%E6%8C%87%E4%BB%A4/" class="archive-article-date">
+  	<time datetime="2022-11-22T15:54:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="docker相关知识"><a href="#docker相关知识" class="headerlink" title="docker相关知识"></a>docker相关知识</h2><h3 id="1-docker环境安装及配置"><a href="#1-docker环境安装及配置" class="headerlink" title="1 docker环境安装及配置"></a>1 docker环境安装及配置</h3><h4 id="1-1-参考文档"><a href="#1-1-参考文档" class="headerlink" title="1.1 参考文档"></a>1.1 参考文档</h4><p><a target="_blank" rel="noopener" href="https://docs.docker.com/">https://docs.docker.com/</a><br><a target="_blank" rel="noopener" href="https://docs.docker.com/engine/install/centos/">https://docs.docker.com/engine/install/centos/</a></p>
+<h4 id="1-2-安装步骤及相关命令"><a href="#1-2-安装步骤及相关命令" class="headerlink" title="1.2 安装步骤及相关命令"></a>1.2 安装步骤及相关命令</h4><ol>
+<li>确定linux版本是否符合: CentOS7及以上版本<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/redhat-release</span><br></pre></td></tr></table></figure></li>
+<li>卸载旧版本<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">yum remove docker \</span><br><span class="line"><span class="code">          docker-client \</span></span><br><span class="line"><span class="code">          docker-client-latest \</span></span><br><span class="line"><span class="code">          docker-common \</span></span><br><span class="line"><span class="code">          docker-latest \</span></span><br><span class="line"><span class="code">          docker-latest-logrotate \</span></span><br><span class="line"><span class="code">          docker-logrotate \</span></span><br><span class="line"><span class="code">          docker-engine</span></span><br></pre></td></tr></table></figure></li>
+<li>yum安装gcc相关<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum -y install gcc</span><br><span class="line">yum -y install gcc-c++</span><br></pre></td></tr></table></figure></li>
+<li>安装需要的软件包<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y yum-utils</span><br></pre></td></tr></table></figure></li>
+<li>设置stable镜像仓库<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum-config-manager \</span><br><span class="line">  --add-repo \</span><br><span class="line">  http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br></pre></td></tr></table></figure></li>
+<li>更新yun软件包索引<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum makecache fast</span><br></pre></td></tr></table></figure></li>
+<li>安装DOCKER CE<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install docker-ce docker-ce-cli containerd.io docker-compose-plugin</span><br></pre></td></tr></table></figure></li>
+<li>启动docker<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start docker</span><br></pre></td></tr></table></figure></li>
+<li>测试<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run hello-world</span><br></pre></td></tr></table></figure></li>
+<li>查看docker版本</li>
+</ol>
+<pre><code><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker version</span><br></pre></td></tr></table></figure>
+</code></pre>
+<ol start="11">
+<li>卸载</li>
+</ol>
+<pre><code><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop docker</span><br><span class="line">yum remove docker-ce docker-ce-cli containerd.io docker-compose-plugin</span><br><span class="line">rm -rf /var/lib/docker</span><br><span class="line">rm -rf /var/lib/containerd</span><br></pre></td></tr></table></figure>
+</code></pre>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/11/22/docker%E7%9B%B8%E5%85%B3%E6%8C%87%E4%BB%A4/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-黑马可视化项目学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1250,6 +1343,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">echarts nodejs Koa2</a>
