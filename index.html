@@ -1486,7 +1486,122 @@
 </ol>
 </li>
 </ol>
-<h3 id="3-Docker镜像"><a href="#3-Docker镜像" class="headerlink" title="3 Docker镜像"></a>3 Docker镜像</h3>
+<h3 id="3-Docker镜像"><a href="#3-Docker镜像" class="headerlink" title="3 Docker镜像"></a>3 Docker镜像</h3><h4 id="3-1-镜像是什么"><a href="#3-1-镜像是什么" class="headerlink" title="3.1 镜像是什么"></a>3.1 镜像是什么</h4><ol>
+<li>定义：<ol>
+<li>是一种轻量级、可执行的独立软件包，</li>
+<li>它包含运行某个软件所需的所有内容，</li>
+<li>我们把应用程序和配置依赖打包好形成一个可交付的运行环境(包括代码、运行时需要的库、环境变量和配置文件等)，</li>
+<li>这个打包好的运行环境就是image镜像文件。</li>
+<li>注意： <ul>
+<li>只有通过这个镜像文件才能生成Docker容器实例(类似Java中new出来一个对象)。</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>分层的镜像<ol>
+<li>好处： 为了复用</li>
+</ol>
+</li>
+<li>UnionFS（联合文件系统）</li>
+<li>注意： <span style="color: red">Docker镜像层都是只读的，容器层是可写的</span></li>
+</ol>
+<h4 id="3-2-Docker镜像commit操作案例"><a href="#3-2-Docker镜像commit操作案例" class="headerlink" title="3.2 Docker镜像commit操作案例"></a>3.2 Docker镜像commit操作案例</h4><ol>
+<li>命令<ol>
+<li>docker commit提交容器副本使之称为一个新的镜像 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker commit -m=&quot;提交的描述信息&quot; -a=&quot;作者&quot; 容器ID 要创建的目标镜像名:[标签名]</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li>案例<ol>
+<li>从Hub上下载Ubuntu镜像到本地并成功运行<ul>
+<li><span style="color: red">原始的默认Ubuntu镜像是不带着vim命令的</span></li>
+<li>测试： <ul>
+<li>docker run -it ubuntu /bin/bash</li>
+<li>vim a.txt</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>外网连通的情况下，安装vim(在docker的Ubuntu容器内执行)<ul>
+<li>apt-get update</li>
+<li>apt-get -y install vim</li>
+</ul>
+</li>
+<li>安装完成后，commit我们自己的新镜像<ul>
+<li>docker commit -m=”add vim cmd” -a=”xiol” 容器ID xiol/myubuntu:1.1</li>
+<li>docker images</li>
+</ul>
+</li>
+<li>启动我们的新镜像并和原来的对比</li>
+</ol>
+</li>
+<li>小总结<ol>
+<li>Docker中的镜像分层，<span style="color: red">支持通过扩展现有镜像，创建新的镜像。</span>类似Java继承于一个Base基础类，自己再按需扩展。</li>
+</ol>
+</li>
+</ol>
+<h3 id="4-本地镜像发布到阿里云"><a href="#4-本地镜像发布到阿里云" class="headerlink" title="4. 本地镜像发布到阿里云"></a>4. 本地镜像发布到阿里云</h3><h4 id="4-1-本地镜像发布到阿里云流程"><a href="#4-1-本地镜像发布到阿里云流程" class="headerlink" title="4.1 本地镜像发布到阿里云流程"></a>4.1 本地镜像发布到阿里云流程</h4><p><img src="/2022/11/27/docker%E7%9B%B8%E5%85%B3%E6%8C%87%E4%BB%A4/02_%E9%98%BF%E9%87%8C%E4%BA%91ECS_Docker%E7%94%9F%E6%80%81%E5%9B%BE.png" alt="img.png"></p>
+<h4 id="4-2-镜像的生成方法"><a href="#4-2-镜像的生成方法" class="headerlink" title="4.2 镜像的生成方法"></a>4.2 镜像的生成方法</h4><p> 参考3.2 章节</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker commit -m=&quot;提交的描述信息&quot; -a=&quot;作者&quot; 容器ID 要创建的目标镜像名:[标签名]</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-3-将本地镜像推送到阿里云"><a href="#4-3-将本地镜像推送到阿里云" class="headerlink" title="4.3 将本地镜像推送到阿里云"></a>4.3 将本地镜像推送到阿里云</h4><ol>
+<li>阿里云开发者平台<ol>
+<li><a target="_blank" rel="noopener" href="https://cr.console.aliyun.com/">https://cr.console.aliyun.com/</a></li>
+</ol>
+</li>
+<li>创建仓库镜像<ol>
+<li>进入控制台，进入容器镜像服务</li>
+<li>选择个人实例</li>
+<li>创建命名空间</li>
+<li>创建仓库名称</li>
+<li>选择本地仓库， 或者进入管理页面获取获得脚本</li>
+</ol>
+</li>
+<li>将镜像推送到阿里云<ol>
+<li>将镜像推送到Registry: <span style="color: red">使用页面指引的命令</span><ul>
+<li>docker login –username=用户名 registry.cn-hangzhou.aliyuncs.com</li>
+<li>docker tag [ImageId] registry.cn-hangzhou.aliyuncs.com/xiol/myubuntu:[镜像版本号]</li>
+<li>docker push registry.cn-hangzhou.aliyuncs.com/xiol/myubuntu:[镜像版本号]</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<h4 id="4-4-将阿里云上的镜像下载到本地"><a href="#4-4-将阿里云上的镜像下载到本地" class="headerlink" title="4.4 将阿里云上的镜像下载到本地"></a>4.4 将阿里云上的镜像下载到本地</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull registry.cn-hangzhou.aliyuncs.com/xiol/myubuntu:[镜像版本号]</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-本地镜像发布到私有库"><a href="#5-本地镜像发布到私有库" class="headerlink" title="5. 本地镜像发布到私有库"></a>5. 本地镜像发布到私有库</h3><h4 id="5-1-Docker-Registry"><a href="#5-1-Docker-Registry" class="headerlink" title="5.1  Docker Registry"></a>5.1  Docker Registry</h4><p>Docker Registry是官方提供的工具，可以用于构建私有镜像仓库</p>
+<h4 id="5-2-将本地镜像推送到私有库"><a href="#5-2-将本地镜像推送到私有库" class="headerlink" title="5.2 将本地镜像推送到私有库"></a>5.2 将本地镜像推送到私有库</h4><ol>
+<li>下载镜像Docker Registry<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull registry</span><br></pre></td></tr></table></figure></li>
+<li>运行私有库Registry,相当于本地有个私有的Docker hub<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 5000:5000 -v /xiol/myregistry/:/tmp/registry --privileged=true registry</span><br></pre></td></tr></table></figure></li>
+<li>案例：演示创建一个新镜像，Ubuntu安装ifconfig命令<ol>
+<li>从Hub上下载Ubuntu镜像到本地并成功运行<ul>
+<li><span style="color: red">原始的默认Ubuntu镜像是不带着ifconfig命令的</span></li>
+<li>测试：<ul>
+<li>docker run -it ubuntu /bin/bash</li>
+<li>ifconfig</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>外网连通的情况下，安装vim(在docker的Ubuntu容器内执行)<ul>
+<li>apt-get update</li>
+<li>apt-get -y install net-tools</li>
+</ul>
+</li>
+<li>安装完成后，commit我们自己的新镜像<ul>
+<li>docker commit -m=”add vim cmd” -a=”xiol” 容器ID xiol/myubuntu:1.2</li>
+<li>docker images</li>
+</ul>
+</li>
+<li>启动我们的新镜像并和原来的对比</li>
+</ol>
+</li>
+<li>curl验证私有库上有什么镜像</li>
+<li>将新镜像myubuntu:1.修改符合私服规范Tag   </li>
+<li>修改配置文件使之支持http</li>
+<li>push推送到私有库</li>
+<li>curl验证私服库上有什么镜像2</li>
+<li>pull到本地并运行</li>
+</ol>
+<h3 id="6-Docker容器数据卷"><a href="#6-Docker容器数据卷" class="headerlink" title="6. Docker容器数据卷"></a>6. Docker容器数据卷</h3><h3 id="7-Docker常规安装简介"><a href="#7-Docker常规安装简介" class="headerlink" title="7. Docker常规安装简介"></a>7. Docker常规安装简介</h3>
       
 
       
@@ -1906,15 +2021,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">docker, 尚硅谷， 镜像</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">react, skyWalking</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">docker, 尚硅谷， 镜像</a>
               </li>
              
               <li class="article-tag-list-item">
