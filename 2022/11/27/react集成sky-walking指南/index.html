@@ -6,20 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>testImg | xiol个人博客</title>
+  <title>react集成sky-walking指南 | xiol个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
-<meta property="og:title" content="testImg">
-<meta property="og:url" content="http://example.com/2022/11/27/testImg/index.html">
+  <meta name="description" content="react工程集成sky-walking指南1 准备条件 官网参考地址https:&#x2F;&#x2F;www.npmjs.com&#x2F;package&#x2F;skywalking-client-js 要求：sky-walking服务端版本为8.2+, 最好9+ 安装前端sky-walking依赖1npm install skywalking-client-js --save  2  创建基于skywalking-client">
+<meta property="og:type" content="article">
+<meta property="og:title" content="react集成sky-walking指南">
+<meta property="og:url" content="http://example.com/2022/11/27/react%E9%9B%86%E6%88%90sky-walking%E6%8C%87%E5%8D%97/index.html">
 <meta property="og:site_name" content="xiol个人博客">
+<meta property="og:description" content="react工程集成sky-walking指南1 准备条件 官网参考地址https:&#x2F;&#x2F;www.npmjs.com&#x2F;package&#x2F;skywalking-client-js 要求：sky-walking服务端版本为8.2+, 最好9+ 安装前端sky-walking依赖1npm install skywalking-client-js --save  2  创建基于skywalking-client">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2022/11/27/testImg/500.png">
-<meta property="article:published_time" content="2022-11-27T04:16:20.000Z">
-<meta property="article:modified_time" content="2022-11-27T04:24:02.699Z">
+<meta property="og:image" content="http://example.com/2022/11/27/react%E9%9B%86%E6%88%90sky-walking%E6%8C%87%E5%8D%97/500.png">
+<meta property="og:image" content="http://example.com/2022/11/27/react%E9%9B%86%E6%88%90sky-walking%E6%8C%87%E5%8D%97/sky-walking.png">
+<meta property="article:published_time" content="2022-11-27T05:59:59.000Z">
+<meta property="article:modified_time" content="2022-11-27T06:17:23.547Z">
 <meta property="article:author" content="Xiol">
-<meta property="article:tag" content="java javascript">
+<meta property="article:tag" content="react, skyWalking">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2022/11/27/testImg/500.png">
+<meta name="twitter:image" content="http://example.com/2022/11/27/react%E9%9B%86%E6%88%90sky-walking%E6%8C%87%E5%8D%97/500.png">
   
     <link rel="alternative" href="/atom.xml" title="xiol个人博客" type="application/atom+xml">
   
@@ -155,27 +158,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-testImg" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-react集成sky-walking指南" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      testImg
+      react集成sky-walking指南
     </h1>
   
 
         
-        <a href="/2022/11/27/testImg/" class="archive-article-date">
-  	<time datetime="2022-11-27T04:16:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-27</time>
+        <a href="/2022/11/27/react%E9%9B%86%E6%88%90sky-walking%E6%8C%87%E5%8D%97/" class="archive-article-date">
+  	<time datetime="2022-11-27T05:59:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-27</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/2022/11/27/testImg/500.png" alt="500"></p>
+        <h3 id="react工程集成sky-walking指南"><a href="#react工程集成sky-walking指南" class="headerlink" title="react工程集成sky-walking指南"></a>react工程集成sky-walking指南</h3><h4 id="1-准备条件"><a href="#1-准备条件" class="headerlink" title="1 准备条件"></a>1 准备条件</h4><ol>
+<li>官网参考地址<br><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/skywalking-client-js">https://www.npmjs.com/package/skywalking-client-js</a></li>
+<li>要求：sky-walking服务端版本为8.2+, 最好9+</li>
+<li>安装前端sky-walking依赖<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install skywalking-client-js --save</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h4 id="2-创建基于skywalking-client-js的高阶组件"><a href="#2-创建基于skywalking-client-js的高阶组件" class="headerlink" title="2  创建基于skywalking-client-js的高阶组件"></a>2  创建基于skywalking-client-js的高阶组件</h4><ol>
+<li>在src/components下创建ClientMonitorCom文件夹</li>
+<li>在文件夹下创建index.js文件，编写内容如下图所示.<ol>
+<li>其中，相关配置项释义如下<ol>
+<li>collector为：skywalking服务端指向监控web的地址</li>
+<li>service为：注册到skywalking服务端的前端工程服务名</li>
+<li>pagePath为：前端发生错误的页面</li>
+<li>serviceVersion为监控当前web服务的自定义版本号</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 异常捕获高阶组件(公共) ：异常发送给skyWalking后台监控服务</span></span><br><span class="line"><span class="comment"> *  其他route页面调用方法</span></span><br><span class="line"><span class="comment"> *    1. 引入高阶组件依赖</span></span><br><span class="line"><span class="comment"> *      import  ClientMonitorCom from &#x27;@/components/ClientMonitorCom&#x27;;</span></span><br><span class="line"><span class="comment"> *    2. 调用 在class组件类标签上添加高阶组件标识</span></span><br><span class="line"><span class="comment"> *      <span class="doctag">@ClientMonitorCom</span></span></span><br><span class="line"><span class="comment"> *    3. 参考配置：</span></span><br><span class="line"><span class="comment"> *      可参考组件的路径：src/pages/Login/Login.js</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">React</span> <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">ClientMonitor</span> <span class="keyword">from</span> <span class="string">&#x27;skywalking-client-js&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Exception500</span> <span class="keyword">from</span> <span class="string">&#x27;@/pages/Exception/500&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; isFormalEnvFn &#125; <span class="keyword">from</span> <span class="string">&#x27;@/utils/utils&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">ClientMonitorCom</span> = (<span class="params">Component</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">class</span> <span class="title class_">ClientMonitorCom</span> <span class="keyword">extends</span> <span class="title class_ inherited__">React.Component</span> &#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">props</span>) &#123;</span><br><span class="line">      <span class="variable language_">super</span>(props);</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">state</span> = &#123;</span><br><span class="line">        <span class="attr">hasError</span>: <span class="literal">false</span>, <span class="comment">// 页面出错标识</span></span><br><span class="line">      &#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 更新页面出错标识</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> error 错误信息</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@returns</span> &#123;<span class="type">&#123;hasError: boolean</span>&#125;&#125;</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">static</span> <span class="title function_">getDerivedStateFromError</span>(<span class="params">error</span>) &#123;</span><br><span class="line">      <span class="comment">// Update state so the next render will show the fallback UI.</span></span><br><span class="line">      <span class="keyword">return</span> &#123; <span class="attr">hasError</span>: <span class="literal">true</span> &#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 组价发生异常后，上报给sky-walking后台服务</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> error  错误信息</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> errorInfo 错误信息对象 &#123;componentStack: &#x27;&#x27;&#125;</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="title function_">componentDidCatch</span>(<span class="params">error, errorInfo</span>) &#123;</span><br><span class="line">      <span class="comment">// 1、获取当前所处环境，根据不同的环境使用不同的后台服务地址</span></span><br><span class="line">      <span class="keyword">const</span> isFormalEnv = <span class="title function_">isFormalEnvFn</span>(<span class="variable language_">window</span>.<span class="property">location</span>.<span class="property">href</span>, <span class="variable language_">window</span>.<span class="property">env</span>);</span><br><span class="line">      <span class="comment">// 2、汇集当前错误信息，并上报sky-walking后台服务</span></span><br><span class="line">      <span class="title class_">ClientMonitor</span>.<span class="title function_">reportFrameErrors</span>(&#123;</span><br><span class="line">        <span class="comment">// 后台sky-walking服务地址，如： &#x27;http://ip:port&#x27;</span></span><br><span class="line">        <span class="attr">collector</span>: isFormalEnv ? <span class="variable language_">window</span>.<span class="property">skyWalkingServiceUrl</span> : <span class="variable language_">window</span>.<span class="property">testSkyWalkingServiceUrl</span>,</span><br><span class="line">        <span class="comment">// 前端服务名称：如： &#x27;blade-sword&#x27;</span></span><br><span class="line">        <span class="attr">service</span>: <span class="variable language_">window</span>.<span class="property">frontServiceName</span>,</span><br><span class="line">        <span class="comment">// 页面报错的路径，使用window.location.href 即可</span></span><br><span class="line">        <span class="attr">pagePath</span>: <span class="variable language_">window</span>.<span class="property">location</span>.<span class="property">href</span>,</span><br><span class="line">        <span class="comment">// 前端服务的版本，如： &#x27;v1.0.1&#x27;</span></span><br><span class="line">        <span class="attr">serviceVersion</span>: <span class="variable language_">window</span>.<span class="property">systemVersion</span>,</span><br><span class="line">      &#125;, error);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="title function_">render</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="keyword">const</span> &#123;hasError&#125; = <span class="variable language_">this</span>.<span class="property">state</span>;</span><br><span class="line">      <span class="comment">// 根据页面出错标识，渲染 500页面或正常的子组件页面</span></span><br><span class="line">      <span class="keyword">if</span>(hasError)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">Exception500</span>  /&gt;</span></span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">Component</span> &#123;<span class="attr">...this.props</span>&#125; /&gt;</span></span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">ClientMonitorCom</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-在前端服务的相关重点路由页面埋点"><a href="#3-在前端服务的相关重点路由页面埋点" class="headerlink" title="3 在前端服务的相关重点路由页面埋点"></a>3 在前端服务的相关重点路由页面埋点</h4><ol>
+<li>引入：在页面引入高阶组件 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span>  <span class="title class_">ClientMonitorCom</span> <span class="keyword">from</span> <span class="string">&#x27;@/components/ClientMonitorCom&#x27;</span>;</span><br></pre></td></tr></table></figure></li>
+<li>调用：在class组件类标签上添加高阶组件标识<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span>, &#123; <span class="title class_">PureComponent</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span>  <span class="title class_">ClientMonitorCom</span> <span class="keyword">from</span> <span class="string">&#x27;@/components/ClientMonitorCom&#x27;</span></span><br><span class="line"></span><br><span class="line">@<span class="title class_">ClientMonitorCom</span> <span class="comment">// 在class组件类标签上添加高阶组件标识</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Hello</span> <span class="keyword">extends</span>  <span class="title class_ inherited__">PureComponent</span> &#123;</span><br><span class="line">   </span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">  <span class="title function_">render</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">     <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">     		...   </span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">Hello</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h4 id="4-测试"><a href="#4-测试" class="headerlink" title="4 测试"></a>4 测试</h4><ol>
+<li>埋点 ： 编写测试组件，并创建异常<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span>, &#123; <span class="title class_">Component</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span>  <span class="title class_">ClientMonitorCom</span> <span class="keyword">from</span> <span class="string">&#x27;@/components/ClientMonitorCom&#x27;</span>;</span><br><span class="line"></span><br><span class="line">@<span class="title class_">ClientMonitorCom</span> <span class="comment">// 在class组件类标签上添加高阶组件标识</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Demo</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Component</span> &#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 示例异常方法</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@constructor</span></span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="title class_">DemoMethod</span> = <span class="function">() =&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">DOMException</span>(<span class="string">&#x27;演示一个异常&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">render</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">// 调用异常</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="title class_">DemoMethod</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>这是一个测试sky-walking页面<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">Demo</span>;</span><br></pre></td></tr></table></figure></li>
+<li>访问组件页面<ol>
+<li>页面出错：跳转到500页面<br> <img src="/2022/11/27/react%E9%9B%86%E6%88%90sky-walking%E6%8C%87%E5%8D%97/500.png" alt="500"></li>
+<li>F12查看上报数据请求<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.请求地址</span></span><br><span class="line">http:<span class="comment">//ip:port/browser/errorLogs</span></span><br><span class="line"><span class="comment">// 2.请求方法：POST</span></span><br><span class="line"><span class="comment">// 3.请求参数</span></span><br><span class="line">[&#123;</span><br><span class="line">    <span class="string">&quot;uniqueId&quot;</span>: <span class="string">&quot;47d42369-b07e-4f04-b7ba-314a640074f1&quot;</span>,</span><br><span class="line">    <span class="string">&quot;service&quot;</span>: <span class="string">&quot;blade-sword&quot;</span>,</span><br><span class="line">    <span class="string">&quot;serviceVersion&quot;</span>: <span class="string">&quot;V1.0.1&quot;</span>,</span><br><span class="line">    <span class="string">&quot;pagePath&quot;</span>: <span class="string">&quot;http://localhost:1889/#/demo&quot;</span>,</span><br><span class="line">    <span class="string">&quot;category&quot;</span>: <span class="string">&quot;js&quot;</span>,</span><br><span class="line">    <span class="string">&quot;grade&quot;</span>: <span class="string">&quot;Error&quot;</span>,</span><br><span class="line">    <span class="string">&quot;errorUrl&quot;</span>: <span class="string">&quot;Error&quot;</span>,</span><br><span class="line">    <span class="string">&quot;message&quot;</span>: <span class="string">&quot;演示一个异常&quot;</span>,</span><br><span class="line">    <span class="string">&quot;firstReportedError&quot;</span>: <span class="literal">true</span></span><br><span class="line">&#125;]</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li>查看sky-walking监控页面</li>
+</ol>
+<p><img src="/2022/11/27/react%E9%9B%86%E6%88%90sky-walking%E6%8C%87%E5%8D%97/sky-walking.png" alt="skw-walking"></p>
 
       
 
@@ -205,6 +241,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">react, skyWalking</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -255,7 +302,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/11/27/testImg/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/11/27/react%E9%9B%86%E6%88%90sky-walking%E6%8C%87%E5%8D%97/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -269,9 +316,18 @@
   
 <nav id="article-nav">
   
+    <a href="/2022/11/27/docker%E7%9B%B8%E5%85%B3%E6%8C%87%E4%BB%A4/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          docker相关指令
+        
+      </div>
+    </a>
   
-    <a href="/2022/11/27/react%E9%9B%86%E6%88%90skywalking%E6%8C%87%E5%8D%97/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">react集成sky-walking指南</div>
+  
+    <a href="/2022/10/22/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">我的第一篇博客文章</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -397,11 +453,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">react, skyWalking</a>
+                <a href="javascript:void(0)" class="js-tag color1">docker, 尚硅谷， 镜像</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">docker, 尚硅谷， 镜像</a>
+                <a href="javascript:void(0)" class="js-tag color3">react, skyWalking</a>
               </li>
              
               <li class="article-tag-list-item">
