@@ -155,6 +155,136 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-react集成skywalking指南" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/11/27/react%E9%9B%86%E6%88%90skywalking%E6%8C%87%E5%8D%97/">react集成sky-walking指南</a>
+    </h1>
+  
+
+        
+        <a href="/2022/11/27/react%E9%9B%86%E6%88%90skywalking%E6%8C%87%E5%8D%97/" class="archive-article-date">
+  	<time datetime="2022-11-27T03:21:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="react工程集成sky-walking指南"><a href="#react工程集成sky-walking指南" class="headerlink" title="react工程集成sky-walking指南"></a>react工程集成sky-walking指南</h3><h4 id="1-准备条件"><a href="#1-准备条件" class="headerlink" title="1 准备条件"></a>1 准备条件</h4><ol>
+<li><p>官网参考地址</p>
+<p><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/skywalking-client-js">https://www.npmjs.com/package/skywalking-client-js</a></p>
+</li>
+<li><p>要求：sky-walking服务端版本为8.2+, 最好9+</p>
+</li>
+<li><p>安装前端sky-walking依赖</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install skywalking-client-js --save</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h4 id="2-创建基于skywalking-client-js的高阶组件"><a href="#2-创建基于skywalking-client-js的高阶组件" class="headerlink" title="2  创建基于skywalking-client-js的高阶组件"></a>2  创建基于skywalking-client-js的高阶组件</h4><ol>
+<li>在src/components下创建ClientMonitorCom文件夹</li>
+<li>在文件夹下创建index.js文件，编写内容如下图所示.<ol>
+<li>其中，相关配置项释义如下<ol>
+<li>collector为：skywalking服务端指向监控web的地址</li>
+<li>service为：注册到skywalking服务端的前端工程服务名</li>
+<li>pagePath为：前端发生错误的页面</li>
+<li>serviceVersion为监控当前web服务的自定义版本号</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 异常捕获高阶组件(公共) ：异常发送给skyWalking后台监控服务</span></span><br><span class="line"><span class="comment"> *  其他route页面调用方法</span></span><br><span class="line"><span class="comment"> *    1. 引入高阶组件依赖</span></span><br><span class="line"><span class="comment"> *      import  ClientMonitorCom from &#x27;@/components/ClientMonitorCom&#x27;;</span></span><br><span class="line"><span class="comment"> *    2. 调用 在class组件类标签上添加高阶组件标识</span></span><br><span class="line"><span class="comment"> *      <span class="doctag">@ClientMonitorCom</span></span></span><br><span class="line"><span class="comment"> *    3. 参考配置：</span></span><br><span class="line"><span class="comment"> *      可参考组件的路径：src/pages/Login/Login.js</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">React</span> <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">ClientMonitor</span> <span class="keyword">from</span> <span class="string">&#x27;skywalking-client-js&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Exception500</span> <span class="keyword">from</span> <span class="string">&#x27;@/pages/Exception/500&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; isFormalEnvFn &#125; <span class="keyword">from</span> <span class="string">&#x27;@/utils/utils&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">ClientMonitorCom</span> = (<span class="params">Component</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">class</span> <span class="title class_">ClientMonitorCom</span> <span class="keyword">extends</span> <span class="title class_ inherited__">React.Component</span> &#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">props</span>) &#123;</span><br><span class="line">      <span class="variable language_">super</span>(props);</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">state</span> = &#123;</span><br><span class="line">        <span class="attr">hasError</span>: <span class="literal">false</span>, <span class="comment">// 页面出错标识</span></span><br><span class="line">      &#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 更新页面出错标识</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> error 错误信息</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@returns</span> &#123;<span class="type">&#123;hasError: boolean</span>&#125;&#125;</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">static</span> <span class="title function_">getDerivedStateFromError</span>(<span class="params">error</span>) &#123;</span><br><span class="line">      <span class="comment">// Update state so the next render will show the fallback UI.</span></span><br><span class="line">      <span class="keyword">return</span> &#123; <span class="attr">hasError</span>: <span class="literal">true</span> &#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 组价发生异常后，上报给sky-walking后台服务</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> error  错误信息</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> errorInfo 错误信息对象 &#123;componentStack: &#x27;&#x27;&#125;</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="title function_">componentDidCatch</span>(<span class="params">error, errorInfo</span>) &#123;</span><br><span class="line">      <span class="comment">// 1、获取当前所处环境，根据不同的环境使用不同的后台服务地址</span></span><br><span class="line">      <span class="keyword">const</span> isFormalEnv = <span class="title function_">isFormalEnvFn</span>(<span class="variable language_">window</span>.<span class="property">location</span>.<span class="property">href</span>, <span class="variable language_">window</span>.<span class="property">env</span>);</span><br><span class="line">      <span class="comment">// 2、汇集当前错误信息，并上报sky-walking后台服务</span></span><br><span class="line">      <span class="title class_">ClientMonitor</span>.<span class="title function_">reportFrameErrors</span>(&#123;</span><br><span class="line">        <span class="comment">// 后台sky-walking服务地址，如： &#x27;http://ip:port&#x27;</span></span><br><span class="line">        <span class="attr">collector</span>: isFormalEnv ? <span class="variable language_">window</span>.<span class="property">skyWalkingServiceUrl</span> : <span class="variable language_">window</span>.<span class="property">testSkyWalkingServiceUrl</span>,</span><br><span class="line">        <span class="comment">// 前端服务名称：如： &#x27;blade-sword&#x27;</span></span><br><span class="line">        <span class="attr">service</span>: <span class="variable language_">window</span>.<span class="property">frontServiceName</span>,</span><br><span class="line">        <span class="comment">// 页面报错的路径，使用window.location.href 即可</span></span><br><span class="line">        <span class="attr">pagePath</span>: <span class="variable language_">window</span>.<span class="property">location</span>.<span class="property">href</span>,</span><br><span class="line">        <span class="comment">// 前端服务的版本，如： &#x27;v1.0.1&#x27;</span></span><br><span class="line">        <span class="attr">serviceVersion</span>: <span class="variable language_">window</span>.<span class="property">systemVersion</span>,</span><br><span class="line">      &#125;, error);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="title function_">render</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="keyword">const</span> &#123;hasError&#125; = <span class="variable language_">this</span>.<span class="property">state</span>;</span><br><span class="line">      <span class="comment">// 根据页面出错标识，渲染 500页面或正常的子组件页面</span></span><br><span class="line">      <span class="keyword">if</span>(hasError)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">Exception500</span>  /&gt;</span></span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">Component</span> &#123;<span class="attr">...this.props</span>&#125; /&gt;</span></span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">ClientMonitorCom</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-在前端服务的相关重点路由页面埋点"><a href="#3-在前端服务的相关重点路由页面埋点" class="headerlink" title="3 在前端服务的相关重点路由页面埋点"></a>3 在前端服务的相关重点路由页面埋点</h4><ol>
+<li><p>引入：在页面引入高阶组件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span>  <span class="title class_">ClientMonitorCom</span> <span class="keyword">from</span> <span class="string">&#x27;@/components/ClientMonitorCom&#x27;</span>;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<ol start="2">
+<li> 调用：在class组件类标签上添加高阶组件标识</li>
+</ol>
+   <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span>, &#123; <span class="title class_">PureComponent</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span>  <span class="title class_">ClientMonitorCom</span> <span class="keyword">from</span> <span class="string">&#x27;@/components/ClientMonitorCom&#x27;</span></span><br><span class="line"></span><br><span class="line">@<span class="title class_">ClientMonitorCom</span> <span class="comment">// 在class组件类标签上添加高阶组件标识</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Hello</span> <span class="keyword">extends</span>  <span class="title class_ inherited__">PureComponent</span> &#123;</span><br><span class="line">   </span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">  <span class="title function_">render</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">     <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">     		...   </span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">Hello</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h4 id="4-测试"><a href="#4-测试" class="headerlink" title="4 测试"></a>4 测试</h4><ol>
+<li><p>埋点 ： 编写测试组件，并创建异常</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span>, &#123; <span class="title class_">Component</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span>  <span class="title class_">ClientMonitorCom</span> <span class="keyword">from</span> <span class="string">&#x27;@/components/ClientMonitorCom&#x27;</span>;</span><br><span class="line"></span><br><span class="line">@<span class="title class_">ClientMonitorCom</span> <span class="comment">// 在class组件类标签上添加高阶组件标识</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Demo</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Component</span> &#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 示例异常方法</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@constructor</span></span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="title class_">DemoMethod</span> = <span class="function">() =&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">DOMException</span>(<span class="string">&#x27;演示一个异常&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">render</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">// 调用异常</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="title class_">DemoMethod</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>这是一个测试sky-walking页面<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">Demo</span>;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<ol start="2">
+<li><p>访问组件页面</p>
+<ol>
+<li> 页面出错：跳转到500页面</li>
+</ol>
+<p><img src="../images/skywalking/500.png" alt="500"></p>
+<ol start="2">
+<li><p>F12查看上报数据请求</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.请求地址</span></span><br><span class="line">http:<span class="comment">//ip:port/browser/errorLogs</span></span><br><span class="line"><span class="comment">// 2.请求方法：POST</span></span><br><span class="line"><span class="comment">// 3.请求参数</span></span><br><span class="line">[&#123;</span><br><span class="line">    <span class="string">&quot;uniqueId&quot;</span>: <span class="string">&quot;47d42369-b07e-4f04-b7ba-314a640074f1&quot;</span>,</span><br><span class="line">    <span class="string">&quot;service&quot;</span>: <span class="string">&quot;blade-sword&quot;</span>,</span><br><span class="line">    <span class="string">&quot;serviceVersion&quot;</span>: <span class="string">&quot;V1.0.1&quot;</span>,</span><br><span class="line">    <span class="string">&quot;pagePath&quot;</span>: <span class="string">&quot;http://localhost:1889/#/demo&quot;</span>,</span><br><span class="line">    <span class="string">&quot;category&quot;</span>: <span class="string">&quot;js&quot;</span>,</span><br><span class="line">    <span class="string">&quot;grade&quot;</span>: <span class="string">&quot;Error&quot;</span>,</span><br><span class="line">    <span class="string">&quot;errorUrl&quot;</span>: <span class="string">&quot;Error&quot;</span>,</span><br><span class="line">    <span class="string">&quot;message&quot;</span>: <span class="string">&quot;演示一个异常&quot;</span>,</span><br><span class="line">    <span class="string">&quot;firstReportedError&quot;</span>: <span class="literal">true</span></span><br><span class="line">&#125;]</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ol>
+<ol start="3">
+<li> 查看sky-walking监控页面</li>
+</ol>
+<p><img src="../images/skywalking/sky-walking.png" alt="skw-walking">  </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">react, skyWalking</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/11/27/react%E9%9B%86%E6%88%90skywalking%E6%8C%87%E5%8D%97/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-docker相关指令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -162,7 +292,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/11/22/docker%E7%9B%B8%E5%85%B3%E6%8C%87%E4%BB%A4/">docker相关指令</a>
+      <a class="article-title" href="/2022/11/22/docker%E7%9B%B8%E5%85%B3%E6%8C%87%E4%BB%A4/">docker相关知识</a>
     </h1>
   
 
@@ -195,7 +325,511 @@
 </ol>
 <pre><code><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop docker</span><br><span class="line">yum remove docker-ce docker-ce-cli containerd.io docker-compose-plugin</span><br><span class="line">rm -rf /var/lib/docker</span><br><span class="line">rm -rf /var/lib/containerd</span><br></pre></td></tr></table></figure>
 </code></pre>
-
+<h3 id="2-Docker常用命令"><a href="#2-Docker常用命令" class="headerlink" title="2 Docker常用命令"></a>2 Docker常用命令</h3><h4 id="2-1-帮助启动类命令"><a href="#2-1-帮助启动类命令" class="headerlink" title="2.1 帮助启动类命令"></a>2.1 帮助启动类命令</h4><ol>
+<li><p>启动docker</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start docker</span><br></pre></td></tr></table></figure></li>
+<li><p>停止docker</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop docker</span><br></pre></td></tr></table></figure></li>
+<li><p>重启docker</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart docker</span><br></pre></td></tr></table></figure></li>
+<li><p>查看docker状态</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status docker</span><br></pre></td></tr></table></figure></li>
+<li><p>开启自启动</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable docker</span><br></pre></td></tr></table></figure></li>
+<li><p>查看docker概要信息</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker info</span><br></pre></td></tr></table></figure></li>
+<li><p>查看docker总体帮助文档</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker --help</span><br></pre></td></tr></table></figure></li>
+<li><p>查看docker命令帮助文档</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker 具体命令 --help</span><br></pre></td></tr></table></figure>
+<h4 id="2-2-镜像命令"><a href="#2-2-镜像命令" class="headerlink" title="2.2 镜像命令"></a>2.2 镜像命令</h4></li>
+<li><p>列出本地主机上的镜像</p>
+<ul>
+<li>-a : 列出本地所有的镜像(含历史印象层)</li>
+<li>-q : 只显示镜像ID<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>查询某个镜像</p>
+<ul>
+<li>镜像仓库网站 <a target="_blank" rel="noopener" href="https://hub.docker.com/">https://hub.docker.com</a></li>
+<li>–limit : 只列出N个镜像，默认25个<ul>
+<li>eg:  docker search redis –limit 5<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker search 镜像名称</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>下载拉取镜像</p>
+<ul>
+<li>拉取最新的版本 <ul>
+<li>docker pull 镜像名称<ul>
+<li>eg: docker pull mysql</li>
+</ul>
+</li>
+<li>docker pull 镜像名称:lastest<ul>
+<li>eg: docker pull mysql:lastest</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>拉取指定版本的镜像<ul>
+<li>docker pull 镜像名称[:TAG]<ul>
+<li>eg: docker pull mysql:5.6<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull 镜像名称[:TAG]</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>查看镜像/容器/数据卷所占的空间</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker system df</span><br></pre></td></tr></table></figure></li>
+<li><p>强制删除指定的镜像</p>
+<ul>
+<li>删除单个<ul>
+<li>docker rmi -f 镜像id  </li>
+</ul>
+</li>
+<li>删除多个<ul>
+<li>docker rmi -f 镜像名1:TAG 镜像名2:TAG</li>
+</ul>
+</li>
+<li>删除全部 <ul>
+<li>docker rmi -f $(docker images -qa)<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rmi -f 镜像的名称/镜像的id</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>面试题：谈谈docker虚悬镜像是什么？</p>
+<ul>
+<li>仓库名、标签都是<none>的镜像，俗称虚悬镜像(dangling image)<h4 id="2-3-容器命令"><a href="#2-3-容器命令" class="headerlink" title="2.3 容器命令 :"></a>2.3 容器命令 :</h4>前提：有镜像才能创建容器，这是根本前提(下载一个centOS或者Ubuntu镜像)</li>
+</ul>
+</li>
+<li><p>从远程仓库拉取linux系统</p>
+<ul>
+<li>centos<ul>
+<li>docker pull centos</li>
+</ul>
+</li>
+<li>ubuntu <ul>
+<li>docker pull ubuntu</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>新建+启动容器</p>
+<ul>
+<li>OPTIONS说明<ul>
+<li>注意： 有些是一个减号，有些是两个减号</li>
+<li>–name=”容器新名字”<ul>
+<li>为容器指定一个名字， 如果不指定，则系统随机分配<ul>
+<li>eg: 启动容器，命名为myUbuntu， 开启伪输入端<ul>
+<li>docker run -it –name=myUbuntu ubuntu /bin/bash</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>-d<ul>
+<li>后台运行容器，并返回容器ID，也即启动守护式容器(后台运行)</li>
+</ul>
+</li>
+<li><span style="color: red"> -i</span><ul>
+<li><span style="color: red">以交互模式运行容器, 通常与-t同时使用</span></li>
+</ul>
+</li>
+<li><span style="color: red"> -t</span><ul>
+<li><span style="color: red">为容器重新分配一个人伪输入终端, 通常与-i同时使用</span></li>
+<li><span style="color: red">也即启动交互式容器(前台有伪终端，等待交互)</span></li>
+<li>eg: 打开Ubuntu，并开启伪输入端 ,希望有个交互式shell ,退出终端 exit<ul>
+<li>docker run -it ubuntu /bin/bash </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>-P<ul>
+<li><span style="color: red">随机</span>指定端口映射，大写P</li>
+</ul>
+</li>
+<li>-p<ul>
+<li><span style="color: red">指定</span>端口映射，小写p<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run [OPTIONS] IMAGE [COMMAND] [ARG...]</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>列出当前所有<span style="color: red">正在运行</span>的容器</p>
+<ul>
+<li>-a<ul>
+<li>列出当前所有<span style="color: red">正在运行</span>的容器+<span style="color: red">历史上运行过</span>的容器</li>
+<li>docker ps -a</li>
+</ul>
+</li>
+<li>-l<ul>
+<li>显示最近创建的容器</li>
+<li>docker ps -l</li>
+</ul>
+</li>
+<li>-n<ul>
+<li>显示最近n个创建的容器</li>
+<li>docker ps -n 2</li>
+</ul>
+</li>
+<li><span style="color: red">-q</span><ul>
+<li><span style="color: red">静默模式，只显示容器编号</span><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps [OPTIONS]</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>退出容器</p>
+<ul>
+<li>run进去容器，exit退出，容器停止</li>
+<li>run进去容器，ctrl+p+q退出，容器不停止 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exit</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>启动已停止运行的容器</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker start 容器ID或者容器名</span><br></pre></td></tr></table></figure></li>
+<li><p>重启容器</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker restart 容器ID或者容器名</span><br></pre></td></tr></table></figure></li>
+<li><p>停止容器</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker stop 容器ID或者容器名</span><br></pre></td></tr></table></figure></li>
+<li><p>强制停止容器</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker kill 容器ID或者容器名</span><br></pre></td></tr></table></figure></li>
+<li><p>删除已停止的容器</p>
+<ul>
+<li>-f<ul>
+<li>强制删除<ul>
+<li>docker rm -f 容器ID或者容器名</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>一次性删除多个容器实例<ul>
+<li>docker rm -f $(docker ps -a -q)</li>
+<li>docker ps -a -q | xargs docker run<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rm 容器ID或者容器名</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><span style="color: red">重要</span></p>
+<ol start="0">
+<li>前提<ul>
+<li>有镜像才能创建容器，这是根本前提(下载一个redis6.0.8镜像演示)</li>
+</ul>
+</li>
+<li><span style="color: purple">启动守护式容器(后台服务器)</span> <ul>
+<li>在大部分的场景下，我们希望docker的服务是在后台运行的，我们可以通过 -d指定容器的后台运行模式 </li>
+<li>docker run -d 容器名<ul>
+<li>注意：部分容器是无法后台运行，例如Ubuntu， 可通过 docker ps查看启动情况<ul>
+<li>docker run -d ubuntu</li>
+<li>docker ps</li>
+<li><span style="color: red">说明：Docker容器后台运行，就必须有一个前台进程</span></li>
+<li>最佳的解决方案是: <span style="color: red">将你要运行的程序以前台进程的形式运行</span></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>redis前后台启动演示案例<ul>
+<li>前台交互式启动<ul>
+<li>docker run -it redis:6.0.8</li>
+<li>按住ctrl+c 后服务即停止了</li>
+</ul>
+</li>
+<li>后台守护式启动<ul>
+<li>docker run -d redis:6.0.8<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d 容器名</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>查看容器日志<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker logs 容器ID</span><br></pre></td></tr></table></figure></li>
+<li>查看容器内运行的进程<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker top 容器ID</span><br></pre></td></tr></table></figure></li>
+<li>查看容器内部细节<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker inspect 容器ID</span><br></pre></td></tr></table></figure></li>
+<li><span style="color: red">进入正在运行的容器并以命令行交互</span> <ul>
+<li>方式一：docker exec -it 容器ID /bin/bash</li>
+<li>方式二：docker attach 容器ID</li>
+<li>案例演示， 用ubuntu演示</li>
+<li>两种方式的区别<ul>
+<li>exec  <ul>
+<li>在容器中打开新的重点，并且可以启动新的进程，</li>
+<li>使用exit退出，不会导致容器的停止</li>
+</ul>
+</li>
+<li>attach<ul>
+<li>直接进入容器启动命令的终端，不会启动新的进程</li>
+<li>用exit退出，会导致容器的停止</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>推荐使用docker exec命令，因为退出容器终端，不会导致容器的停止，</li>
+<li>用之前的redis示例进入试试 <ul>
+<li>进入redis服务<ul>
+<li>docker exec -it redis容器ID /bin/bash</li>
+</ul>
+</li>
+<li>进入redis 客户端<ul>
+<li>redis-cli -p 6379</li>
+</ul>
+</li>
+<li>测试<ul>
+<li>ping</li>
+<li>set k1 v1</li>
+<li>get k1<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it 容器ID /bin/bash</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>从容器内拷贝文件到主机上<ul>
+<li>容器 ——&gt; 主机</li>
+<li>ubuntu创建一个文件<ul>
+<li>touch a.txt<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker cp 容器ID:容器内路径 目的主机路径</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>导入和导出容器<ul>
+<li>export <ul>
+<li>导出容器的内容流作为一个tar归档文件[对应import]</li>
+</ul>
+</li>
+<li>import<ul>
+<li>从tar包中的内容创建一个新的文件系统在导入为镜像[对应export]</li>
+</ul>
+</li>
+<li>案例 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 导出容器到当前目录</span><br><span class="line">docker export 容器ID &gt; 文件名.tar</span><br><span class="line">// 导入</span><br><span class="line">cat 文件名.tar | docker import - 镜像用户/镜像名:镜像版本号</span><br></pre></td></tr></table></figure>
+<h4 id="2-4-小总结"><a href="#2-4-小总结" class="headerlink" title="2.4 小总结"></a>2.4 小总结</h4><img src="../images/docker/01_%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93.png" alt="img.png"></li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>attach    </p>
+<ul>
+<li>Attach to a running container                 </li>
+<li>当前 shell 下 attach 连接指定运行镜像</li>
+</ul>
+</li>
+<li><p>build     </p>
+<ul>
+<li>Build an image from a Dockerfile</li>
+<li>通过 Dockerfile 定制镜像</li>
+</ul>
+</li>
+<li><p>commit    </p>
+<ul>
+<li>Create a new image from a container changes   </li>
+<li>提交当前容器为新的镜像</li>
+</ul>
+</li>
+<li><p>cp        </p>
+<ul>
+<li>Copy files/folders from the containers filesystem to the host path</li>
+<li>从容器中拷贝指定文件或者目录到宿主机中</li>
+</ul>
+</li>
+<li><p>create    </p>
+<ul>
+<li>Create a new container                        </li>
+<li>创建一个新的容器，同 run，但不启动容器</li>
+</ul>
+</li>
+<li><p>diff      </p>
+<ul>
+<li>Inspect changes on a container’s filesystem   </li>
+<li>查看 docker 容器变化</li>
+</ul>
+</li>
+<li><p>events    </p>
+<ul>
+<li>Get real time events from the server          </li>
+<li>从 docker 服务获取容器实时事件</li>
+</ul>
+</li>
+<li><p>exec      </p>
+<ul>
+<li>Run a command in an existing container        </li>
+<li>在已存在的容器上运行命令</li>
+</ul>
+</li>
+<li><p>export    </p>
+<ul>
+<li>Stream the contents of a container as a tar archive   </li>
+<li>导出容器的内容流作为一个 tar 归档文件[对应 import]</li>
+</ul>
+</li>
+<li><p>history</p>
+<ul>
+<li>Show the history of an image</li>
+<li>展示一个镜像形成历史</li>
+</ul>
+</li>
+<li><p>images    </p>
+<ul>
+<li>List images                                   </li>
+<li>列出系统当前镜像</li>
+</ul>
+</li>
+<li><p>import    </p>
+<ul>
+<li>Create a new filesystem image from the contents of a tarball </li>
+<li>从tar包中的内容创建一个新的文件系统映像[对应export]</li>
+</ul>
+</li>
+<li><p>info      </p>
+<ul>
+<li>Display system-wide information               </li>
+<li>显示系统相关信息</li>
+</ul>
+</li>
+<li><p>inspect   </p>
+<ul>
+<li>Return low-level information on a container   </li>
+<li>查看容器详细信息</li>
+</ul>
+</li>
+<li><p>kill      </p>
+<ul>
+<li>Kill a running container                      </li>
+<li>kill 指定 docker 容器</li>
+</ul>
+</li>
+<li><p>load      </p>
+<ul>
+<li>Load an image from a tar archive              </li>
+<li>从一个 tar 包中加载一个镜像[对应 save]</li>
+</ul>
+</li>
+<li><p>login     </p>
+<ul>
+<li>Register or Login to the docker registry server    </li>
+<li>注册或者登陆一个 docker 源服务器</li>
+</ul>
+</li>
+<li><p>logout    </p>
+<ul>
+<li>Log out from a Docker registry server          </li>
+<li>从当前 Docker registry 退出</li>
+</ul>
+</li>
+<li><p>logs     </p>
+<ul>
+<li>Fetch the logs of a container                 </li>
+<li>输出当前容器日志信息</li>
+</ul>
+</li>
+<li><p>port      </p>
+<ul>
+<li>Lookup the public-facing port which is NAT-ed to PRIVATE_PORT    </li>
+<li>查看映射端口对应的容器内部源端口</li>
+</ul>
+</li>
+<li><p>pause     </p>
+<ul>
+<li>Pause all processes within a container        </li>
+<li>暂停容器</li>
+</ul>
+</li>
+<li><p>ps        </p>
+<ul>
+<li>List containers                               </li>
+<li>列出容器列表</li>
+</ul>
+</li>
+<li><p>pull      </p>
+<ul>
+<li>Pull an image or a repository from the docker registry server   </li>
+<li>从docker镜像源服务器拉取指定镜像或者库镜像</li>
+</ul>
+</li>
+<li><p>push      </p>
+<ul>
+<li>Push an image or a repository to the docker registry server    </li>
+<li>推送指定镜像或者库镜像至docker源服务器</li>
+</ul>
+</li>
+<li><p>restart   </p>
+<ul>
+<li>Restart a running container                   </li>
+<li>重启运行的容器</li>
+</ul>
+</li>
+<li><p>rm        </p>
+<ul>
+<li>Remove one or more containers                 </li>
+<li>移除一个或者多个容器</li>
+</ul>
+</li>
+<li><p>rmi       </p>
+<ul>
+<li>Remove one or more images       </li>
+<li>移除一个或多个镜像[无容器使用该镜像才可删除，否则需删除相关容器才可继续或 -f 强制删除]</li>
+</ul>
+</li>
+<li><p>run       </p>
+<ul>
+<li>Run a command in a new container              </li>
+<li>创建一个新的容器并运行一个命令</li>
+</ul>
+</li>
+<li><p>save      </p>
+<ul>
+<li>Save an image to a tar archive                </li>
+<li>保存一个镜像为一个 tar 包[对应 load]</li>
+</ul>
+</li>
+<li><p>search    </p>
+<ul>
+<li>Search for an image on the Docker Hub         </li>
+<li>在 docker hub 中搜索镜像</li>
+</ul>
+</li>
+<li><p>start     </p>
+<ul>
+<li>Start a stopped containers                    </li>
+<li>启动容器</li>
+</ul>
+</li>
+<li><p>stop      </p>
+<ul>
+<li>Stop a running containers                     </li>
+<li>停止容器</li>
+</ul>
+</li>
+<li><p>tag       </p>
+<ul>
+<li>Tag an image into a repository                </li>
+<li>给源中镜像打标签</li>
+</ul>
+</li>
+<li><p>top       </p>
+<ul>
+<li>Lookup the running processes of a container   </li>
+<li>查看容器中运行的进程信息</li>
+</ul>
+</li>
+<li><p>unpause   </p>
+<ul>
+<li>Unpause a paused container                    </li>
+<li>取消暂停容器</li>
+</ul>
+</li>
+<li><p>version   </p>
+<ul>
+<li>Show the docker version information           </li>
+<li>查看 docker 版本号</li>
+</ul>
+</li>
+<li><p>wait      </p>
+<ul>
+<li>Block until a container stops, then print its exit code   </li>
+<li>截取容器停止时的退出状态值</li>
+</ul>
+</li>
+</ol>
+<h3 id="3-Docker镜像"><a href="#3-Docker镜像" class="headerlink" title="3 Docker镜像"></a>3 Docker镜像</h3>
       
 
       
@@ -208,7 +842,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">docker, 尚硅谷， 镜像</a>
         		</li>
       		
 		</ul>
@@ -1143,6 +1777,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -1345,7 +1990,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">docker, 尚硅谷， 镜像</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">react, skyWalking</a>
               </li>
              
               <li class="article-tag-list-item">
