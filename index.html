@@ -1035,12 +1035,15 @@
 <li>启动docker<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start docker</span><br></pre></td></tr></table></figure></li>
 <li>测试<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run hello-world</span><br></pre></td></tr></table></figure></li>
 <li>查看docker版本<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker version</span><br></pre></td></tr></table></figure></li>
-<li>卸载</li>
-</ol>
-  <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop docker</span><br><span class="line">yum remove docker-ce docker-ce-cli containerd.io docker-compose-plugin</span><br><span class="line">rm -rf /var/lib/docker</span><br><span class="line">rm -rf /var/lib/containerd</span><br></pre></td></tr></table></figure>
-<ol start="12">
-<li>配置个人账户的阿里云镜像加速器    1. 阿里云开发者平台<ol>
-<li><a target="_blank" rel="noopener" href="https://cr.console.aliyun.com/">https://cr.console.aliyun.com/</a>    2. 进入控制台，进入容器镜像服务    3. 选中左侧镜像加速器    4. 按照文档指示操作<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">1.</span></span><br><span class="line"> mkdir -p /etc/docker</span><br><span class="line">     </span><br><span class="line"><span class="meta prompt_"> # </span><span class="language-bash">2.</span></span><br><span class="line"> tee /etc/docker/daemon.json &lt;&lt;-&#x27;EOF&#x27;</span><br><span class="line"> &#123;</span><br><span class="line">    &quot;registry-mirrors&quot;: [&quot;https://zzwfk38t.mirror.aliyuncs.com&quot;]</span><br><span class="line"> &#125;</span><br><span class="line"> EOF</span><br><span class="line">     </span><br><span class="line"><span class="meta prompt_"> # </span><span class="language-bash">3</span></span><br><span class="line"> sudo systemctl daemon-reload</span><br><span class="line"><span class="meta prompt_"> # </span><span class="language-bash">4</span></span><br><span class="line">     </span><br><span class="line"> sudo systemctl restart docker</span><br></pre></td></tr></table></figure></li>
+<li>卸载<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop docker</span><br><span class="line">yum remove docker-ce docker-ce-cli containerd.io docker-compose-plugin</span><br><span class="line">rm -rf /var/lib/docker</span><br><span class="line">rm -rf /var/lib/containerd</span><br></pre></td></tr></table></figure></li>
+<li>配置个人账户的阿里云镜像加速器 <ol>
+<li>阿里云开发者平台<ul>
+<li><a target="_blank" rel="noopener" href="https://cr.console.aliyun.com/">https://cr.console.aliyun.com/</a></li>
+</ul>
+</li>
+<li>进入控制台，进入容器镜像服务</li>
+<li>选中左侧镜像加速器</li>
+<li>按照文档指示操作<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">1.</span></span><br><span class="line"> mkdir -p /etc/docker</span><br><span class="line">     </span><br><span class="line"><span class="meta prompt_"> # </span><span class="language-bash">2.</span></span><br><span class="line"> tee /etc/docker/daemon.json &lt;&lt;-&#x27;EOF&#x27;</span><br><span class="line"> &#123;</span><br><span class="line">    &quot;registry-mirrors&quot;: [&quot;https://zzwfk38t.mirror.aliyuncs.com&quot;]</span><br><span class="line"> &#125;</span><br><span class="line"> EOF</span><br><span class="line">     </span><br><span class="line"><span class="meta prompt_"> # </span><span class="language-bash">3.重新加载配置文件</span></span><br><span class="line"> systemctl daemon-reload</span><br><span class="line">     </span><br><span class="line"><span class="meta prompt_"> # </span><span class="language-bash">4.重启docker</span>    </span><br><span class="line"> systemctl restart docker</span><br></pre></td></tr></table></figure></li>
 </ol>
 </li>
 </ol>
@@ -2046,11 +2049,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">react, skyWalking</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color3">react, skyWalking</a>
               </li>
              
               <li class="article-tag-list-item">
