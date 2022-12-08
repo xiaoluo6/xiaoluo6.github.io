@@ -8,17 +8,19 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>docker相关指令 | xiol个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="docker相关知识1 docker环境安装及配置1.1 参考文档https:&#x2F;&#x2F;docs.docker.com&#x2F;https:&#x2F;&#x2F;docs.docker.com&#x2F;engine&#x2F;install&#x2F;centos&#x2F; 1.2 安装步骤及相关命令 确定linux版本是否符合: CentOS7及以上版本1cat &#x2F;etc&#x2F;redhat-release 卸载旧版本12345678yum remove docker">
+  <meta name="description" content="docker相关知识入门篇1 docker环境安装及配置1.1 参考文档https:&#x2F;&#x2F;docs.docker.com&#x2F;https:&#x2F;&#x2F;docs.docker.com&#x2F;engine&#x2F;install&#x2F;centos&#x2F; 1.2 安装步骤及相关命令 确定linux版本是否符合: CentOS7及以上版本1cat &#x2F;etc&#x2F;redhat-release 卸载旧版本12345678yum remove doc">
 <meta property="og:type" content="article">
 <meta property="og:title" content="docker相关指令">
 <meta property="og:url" content="http://example.com/2022/11/27/docker%E7%9B%B8%E5%85%B3%E6%8C%87%E4%BB%A4/index.html">
 <meta property="og:site_name" content="xiol个人博客">
-<meta property="og:description" content="docker相关知识1 docker环境安装及配置1.1 参考文档https:&#x2F;&#x2F;docs.docker.com&#x2F;https:&#x2F;&#x2F;docs.docker.com&#x2F;engine&#x2F;install&#x2F;centos&#x2F; 1.2 安装步骤及相关命令 确定linux版本是否符合: CentOS7及以上版本1cat &#x2F;etc&#x2F;redhat-release 卸载旧版本12345678yum remove docker">
+<meta property="og:description" content="docker相关知识入门篇1 docker环境安装及配置1.1 参考文档https:&#x2F;&#x2F;docs.docker.com&#x2F;https:&#x2F;&#x2F;docs.docker.com&#x2F;engine&#x2F;install&#x2F;centos&#x2F; 1.2 安装步骤及相关命令 确定linux版本是否符合: CentOS7及以上版本1cat &#x2F;etc&#x2F;redhat-release 卸载旧版本12345678yum remove doc">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2022/11/27/docker%E7%9B%B8%E5%85%B3%E6%8C%87%E4%BB%A4/01_%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93.png">
 <meta property="og:image" content="http://example.com/2022/11/27/docker%E7%9B%B8%E5%85%B3%E6%8C%87%E4%BB%A4/02_%E9%98%BF%E9%87%8C%E4%BA%91ECS_Docker%E7%94%9F%E6%80%81%E5%9B%BE.png">
+<meta property="og:image" content="http://example.com/2022/11/27/docker%E7%9B%B8%E5%85%B3%E6%8C%87%E4%BB%A4/03_%E5%AE%B9%E5%99%A8%E5%8D%B7%E6%8C%82%E8%BD%BD%E6%88%90%E5%8A%9F.png">
+<meta property="og:image" content="http://example.com/2022/11/27/docker%E7%9B%B8%E5%85%B3%E6%8C%87%E4%BB%A4/04_mysql%E5%AE%98%E7%BD%91%E5%90%AF%E5%8A%A8%E5%91%BD%E4%BB%A4.png">
 <meta property="article:published_time" content="2022-11-27T06:19:11.000Z">
-<meta property="article:modified_time" content="2022-11-29T16:28:40.051Z">
+<meta property="article:modified_time" content="2022-12-08T15:39:54.708Z">
 <meta property="article:author" content="Xiol">
 <meta property="article:tag" content="docker, 尚硅谷， 镜像">
 <meta name="twitter:card" content="summary">
@@ -178,7 +180,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="docker相关知识"><a href="#docker相关知识" class="headerlink" title="docker相关知识"></a>docker相关知识</h2><h3 id="1-docker环境安装及配置"><a href="#1-docker环境安装及配置" class="headerlink" title="1 docker环境安装及配置"></a>1 docker环境安装及配置</h3><h4 id="1-1-参考文档"><a href="#1-1-参考文档" class="headerlink" title="1.1 参考文档"></a>1.1 参考文档</h4><p><a target="_blank" rel="noopener" href="https://docs.docker.com/">https://docs.docker.com/</a><br><a target="_blank" rel="noopener" href="https://docs.docker.com/engine/install/centos/">https://docs.docker.com/engine/install/centos/</a></p>
+        <h2 id="docker相关知识"><a href="#docker相关知识" class="headerlink" title="docker相关知识"></a>docker相关知识</h2><h2 id="入门篇"><a href="#入门篇" class="headerlink" title="入门篇"></a>入门篇</h2><h3 id="1-docker环境安装及配置"><a href="#1-docker环境安装及配置" class="headerlink" title="1 docker环境安装及配置"></a>1 docker环境安装及配置</h3><h4 id="1-1-参考文档"><a href="#1-1-参考文档" class="headerlink" title="1.1 参考文档"></a>1.1 参考文档</h4><p><a target="_blank" rel="noopener" href="https://docs.docker.com/">https://docs.docker.com/</a><br><a target="_blank" rel="noopener" href="https://docs.docker.com/engine/install/centos/">https://docs.docker.com/engine/install/centos/</a></p>
 <h4 id="1-2-安装步骤及相关命令"><a href="#1-2-安装步骤及相关命令" class="headerlink" title="1.2 安装步骤及相关命令"></a>1.2 安装步骤及相关命令</h4><ol>
 <li>确定linux版本是否符合: CentOS7及以上版本<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/redhat-release</span><br></pre></td></tr></table></figure></li>
 <li>卸载旧版本<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">yum remove docker \</span><br><span class="line"><span class="code">          docker-client \</span></span><br><span class="line"><span class="code">          docker-client-latest \</span></span><br><span class="line"><span class="code">          docker-common \</span></span><br><span class="line"><span class="code">          docker-latest \</span></span><br><span class="line"><span class="code">          docker-latest-logrotate \</span></span><br><span class="line"><span class="code">          docker-logrotate \</span></span><br><span class="line"><span class="code">          docker-engine</span></span><br></pre></td></tr></table></figure></li>
@@ -736,7 +738,15 @@
 <li>下载镜像Docker Registry<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull registry</span><br></pre></td></tr></table></figure></li>
 <li>运行私有库Registry,相当于本地有个私有的Docker hub<ol>
 <li>默认仓库被创建在容器的/var/lib/registry目录下，建议自行设置<ul>
-<li>当前设置在 /xiol/myregistry目录下<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 5000:5000 -v /xiol/myregistry/:/tmp/registry --privileged=true registry</span><br></pre></td></tr></table></figure></li>
+<li>相关参数说明<ul>
+<li>-d 服务后台运行</li>
+<li>-p port:otherPort 指定系统端口与容器内服务的端口映射</li>
+<li>-v 添加自定义的容器卷</li>
+<li>/xiol/myregistry/:/tmp/registry  冒号分割，建立系统目录与容器目录的映射关系 ：信息共享，互通互联</li>
+<li>–privileged=true 添加root最高权限</li>
+<li>registry 镜像名<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 5000:5000 -v /xiol/myregistry/:/tmp/registry --privileged=true registry</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
 </ul>
 </li>
 </ol>
@@ -784,7 +794,404 @@
 <li>curl验证私服库上有什么镜像2<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -XGET http://192.168.186.131:5000/v2/_catalog</span><br></pre></td></tr></table></figure></li>
 <li>pull到本地并运行<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">1. 拉取</span></span><br><span class="line">docker pull 192.168.186.131:5000/xiol/myubuntu:1.2</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">2. 运行</span></span><br><span class="line">docker run -it 192.168.186.131:5000/xiol/myubuntu:1.2 /bin/bash</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">3. 验证</span></span><br><span class="line">ifconfig</span><br></pre></td></tr></table></figure></li>
 </ol>
-<h3 id="6-Docker容器数据卷"><a href="#6-Docker容器数据卷" class="headerlink" title="6. Docker容器数据卷"></a>6. Docker容器数据卷</h3><h3 id="7-Docker常规安装简介"><a href="#7-Docker常规安装简介" class="headerlink" title="7. Docker常规安装简介"></a>7. Docker常规安装简介</h3>
+<h3 id="6-Docker容器数据卷"><a href="#6-Docker容器数据卷" class="headerlink" title="6. Docker容器数据卷"></a>6. Docker容器数据卷</h3><h4 id="6-1-常见坑"><a href="#6-1-常见坑" class="headerlink" title="6.1 常见坑"></a>6.1 常见坑</h4><ol>
+<li>容器卷记得加入<ol>
+<li>–privileged=true参数</li>
+<li>原因：<ol>
+<li>Docker挂载主机目录访问如果出现<span style="color:red">cannot open directory .: Permission denied </span></li>
+</ol>
+</li>
+<li>解决办法<ol>
+<li>在挂载目录后多加一个–privileged=true参数即可</li>
+<li>即：开启root权限</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h4 id="6-2-是什么"><a href="#6-2-是什么" class="headerlink" title="6.2 是什么"></a>6.2 是什么</h4><ol>
+<li>一句话：有点类似我们Redis里面的rdb和aof文件</li>
+<li>将docker容器内的数据保存进宿主机的磁盘中</li>
+<li>举例<ol>
+<li>运行一个带有容器卷存储功能的容器实例  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -privileged=true -v /宿主机绝对路径目录:/容器内目录  镜像名</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ol>
+<h4 id="6-3-能干嘛–持久化"><a href="#6-3-能干嘛–持久化" class="headerlink" title="6.3 能干嘛–持久化"></a>6.3 能干嘛–持久化</h4><ol>
+<li>特点<ol>
+<li>数据卷可在容器之间共享或重用数据</li>
+<li>卷中的更改可以直接实时生效，爽</li>
+<li>数据卷中的更改不会包含在镜像的更新中</li>
+<li>数据卷的生命周期一直持续到没有容器使用它为止 </li>
+</ol>
+</li>
+</ol>
+<h4 id="6-4-数据卷案例"><a href="#6-4-数据卷案例" class="headerlink" title="6.4 数据卷案例"></a>6.4 数据卷案例</h4><p>以ubuntu镜像作为示例</p>
+<h5 id="6-4-1-宿主vs容器之间映射添加容器卷"><a href="#6-4-1-宿主vs容器之间映射添加容器卷" class="headerlink" title="6.4.1 宿主vs容器之间映射添加容器卷"></a>6.4.1 宿主vs容器之间映射添加容器卷</h5><ol>
+<li>命令<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">docker run -it --privileged=<span class="literal">true</span> -v /宿主机绝对路径目录:/容器内目录 镜像名</span></span><br><span class="line"> docker run -it --privileged=true -v /tmp/host_data:/tmp/docker_data --name=u1 ubuntu</span><br></pre></td></tr></table></figure></li>
+<li>查看数据卷是否挂载成功<ol>
+<li>在宿主机使用命令<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker inspect 容器id</span><br></pre></td></tr></table></figure></li>
+<li>成功截图<br><img src="/2022/11/27/docker%E7%9B%B8%E5%85%B3%E6%8C%87%E4%BB%A4/03_%E5%AE%B9%E5%99%A8%E5%8D%B7%E6%8C%82%E8%BD%BD%E6%88%90%E5%8A%9F.png" alt="img.png"></li>
+</ol>
+</li>
+<li>容器和宿主机之间数据共享<ol>
+<li>docker修改，主机同步获得</li>
+<li>主机修改，docker同步获得</li>
+<li>docker容器stop，主机修改，docker容器重启看数据是否同步。</li>
+</ol>
+</li>
+</ol>
+<h5 id="6-4-2-读写规则映射添加说明"><a href="#6-4-2-读写规则映射添加说明" class="headerlink" title="6.4.2 读写规则映射添加说明"></a>6.4.2 读写规则映射添加说明</h5><ol>
+<li>读写(默认)<ol>
+<li>语法：<ul>
+<li>docker run -it –privileged=true -v /宿主机绝对路径目录:/容器内目录:rw 镜像名</li>
+</ul>
+</li>
+<li>说明：<ul>
+<li>默认同上案例，默认就是rw</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>只读 <ol>
+<li>语法：<ul>
+<li>docker run -it –privileged=true -v /宿主机绝对路径目录:/容器内目录:ro 镜像名</li>
+</ul>
+</li>
+<li>说明：<ul>
+<li>容器实例内部被限制，只能读取不能写</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<h5 id="6-4-3-卷的继承和共享"><a href="#6-4-3-卷的继承和共享" class="headerlink" title="6.4.3 卷的继承和共享"></a>6.4.3 卷的继承和共享</h5><ol>
+<li>容器1完成和宿主机的映射<ol>
+<li>实例<ul>
+<li>docker run -it –privileged=true -v /mydocker/u:/tmp –name=u1 ubuntu</li>
+</ul>
+</li>
+<li>容器进入tmp目录创建data.txt<ul>
+<li>cd /tmp</li>
+<li>ls -l</li>
+<li>touch u1_data.txt</li>
+<li>ls -l</li>
+</ul>
+</li>
+<li>宿主机进入mydocker查看文件<ul>
+<li>cd /mydocker/u</li>
+<li>ls -l</li>
+<li>touch host.txt</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>容器2继承容器1的卷规则<ol>
+<li>语法<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it --privileged=true --volumes-from 父类 --name 别名 镜像名</span><br></pre></td></tr></table></figure></li>
+<li>实例<ul>
+<li>docker run -it –privileged=true –volumes-from u1 –name u2 ubuntu    </li>
+</ul>
+</li>
+<li>容器查看/tmp目录,并编写u2_data.txt<ul>
+<li>cd /tmp</li>
+<li>ls -l</li>
+<li>touch u2_data.txt</li>
+<li>ls -l</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="7-Docker常规安装简介"><a href="#7-Docker常规安装简介" class="headerlink" title="7. Docker常规安装简介"></a>7. Docker常规安装简介</h3><h4 id="7-1-总体步骤"><a href="#7-1-总体步骤" class="headerlink" title="7.1 总体步骤"></a>7.1 总体步骤</h4><ol>
+<li>搜索镜像</li>
+<li>拉取镜像</li>
+<li>查看镜像</li>
+<li>启动镜像<ol>
+<li>服务端端口映射</li>
+</ol>
+</li>
+<li>停止容器</li>
+<li>移除容器</li>
+</ol>
+<h4 id="7-2-安装tomcat"><a href="#7-2-安装tomcat" class="headerlink" title="7.2 安装tomcat"></a>7.2 安装tomcat</h4><ol>
+<li>docker hub 上面查找tomcat镜像<ol>
+<li>docker search tomcat</li>
+</ol>
+</li>
+<li>从docker hub上拉取tomcat镜像到本地<ol>
+<li>docker pull tomcat</li>
+</ol>
+</li>
+<li>docker images查看是否拉取到tomcat<ol>
+<li>docker images tomcat</li>
+</ol>
+</li>
+<li>使用tomcat镜像创建容器实例(也叫运行镜像)<ol>
+<li>docker run -d -it -p 8080:8080 –name t1 tomcat<ul>
+<li>-p小写,主机端口:docker容器端口</li>
+<li>-P大写,随机分配端口</li>
+<li>-i 交互</li>
+<li>-t 终端</li>
+<li>d 后台</li>
+<li>–name 起别名</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>访问猫首页<ol>
+<li>问题<ul>
+<li>访问<a target="_blank" rel="noopener" href="http://192.168.186.131:8080/">http://192.168.186.131:8080/</a> 报404错误</li>
+</ul>
+</li>
+<li>解决<ul>
+<li>可能没有映射端口号或者没有关闭防火墙</li>
+<li>把webapps.dist目录换成webapps    <ul>
+<li>先启动tomcat</li>
+<li>查看webapps文件夹查看是否为空</li>
+<li>修正</li>
+<li>重启容器</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>免修改版说明<ol>
+<li>拉取镜像<ul>
+<li>docker pull billygoo/tomcat8-jdk8</li>
+</ul>
+</li>
+<li>后台运行<ul>
+<li>docker run -d -p 8080:8080 –name mytomcat8  billygoo/tomcat8-jdk8</li>
+</ul>
+</li>
+<li>访问<ul>
+<li><a target="_blank" rel="noopener" href="http://192.168.186.131:8080/">http://192.168.186.131:8080/</a> </li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<h4 id="7-3-安装mysql"><a href="#7-3-安装mysql" class="headerlink" title="7.3 安装mysql"></a>7.3 安装mysql</h4><ol>
+<li>从docker hub上面查找mysql镜像<ol>
+<li>docker search mysql</li>
+</ol>
+</li>
+<li>从docker hub 上(阿里加速器)拉取mysql镜像到本地标签为5.7<ol>
+<li>docker pull mysql:5.7</li>
+</ol>
+</li>
+<li>使用mysql5.7镜像创建容器(也叫运行镜像)</li>
+</ol>
+<h5 id="7-3-1-命令出处"><a href="#7-3-1-命令出处" class="headerlink" title="7.3.1 命令出处"></a>7.3.1 命令出处</h5><p><a target="_blank" rel="noopener" href="https://hub.docker.com/_/mysql">https://hub.docker.com/_/mysql</a><br><img src="/2022/11/27/docker%E7%9B%B8%E5%85%B3%E6%8C%87%E4%BB%A4/04_mysql%E5%AE%98%E7%BD%91%E5%90%AF%E5%8A%A8%E5%91%BD%E4%BB%A4.png" alt="img.png"></p>
+<h5 id="7-3-2-简单版"><a href="#7-3-2-简单版" class="headerlink" title="7.3.2 简单版"></a>7.3.2 简单版</h5><ol>
+<li>使用 mysql镜像<ol>
+<li>语法<ul>
+<li>docker run -p 3306:3306 –name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:tag</li>
+</ul>
+</li>
+<li>实例<ul>
+<li>docker run -p 3306:3306 –name simple-mysql -e MYSQL_ROOT_PASSWORD=123456 -d mysql:5.7</li>
+</ul>
+</li>
+<li>查看启动情况<ul>
+<li>docker ps</li>
+</ul>
+</li>
+<li>进入容器<ul>
+<li>docker exec -it 容器id /bin/bash</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>建库建表插入数据<ol>
+<li>连接数据库<ul>
+<li>mysql -uroot -p</li>
+</ul>
+</li>
+<li>创建数据库db01<ul>
+<li>create database db01;</li>
+</ul>
+</li>
+<li>使用db01数据库<ul>
+<li>use db01;</li>
+</ul>
+</li>
+<li>创建aa表<ul>
+<li>create table aa(id int, name varchar(20));</li>
+</ul>
+</li>
+<li>插入数据<ul>
+<li>insert into aa values(1, ‘z3’);</li>
+</ul>
+</li>
+<li>查询aa表数据<ul>
+<li>select * from aa;</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>外部win10系统访问数据库</li>
+<li>问题<ol>
+<li>插入中文数据试试<ul>
+<li>为什么报错？<ul>
+<li>docker上默认字符集编码隐患</li>
+</ul>
+</li>
+<li>查看docker容器实例的字符集编码<ul>
+<li>SHOW VARIABLES LIKE ‘character%’;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>删除容器后，里面的mysql数据如何办<ul>
+<li>容器实例删除后，数据丢失</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<h5 id="7-3-3-实战版"><a href="#7-3-3-实战版" class="headerlink" title="7.3.3 实战版"></a>7.3.3 实战版</h5><ol>
+<li>新建mysql容器实例<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 3306:3306 --privileged=true -v /xiol/mysql/log:/var/log/mysql -v /xiol/mysql/data:/var/lib/mysql -v /xiol/mysql/conf:/etc/mysql/conf.d -e MYSQL_ROOT_PASSWORD=123456  --name mysql mysql:5.7</span><br></pre></td></tr></table></figure></li>
+<li>新建my.conf<ol>
+<li>通过容器卷同步给mysql容器实例<ul>
+<li>cd /xiol/mysql/conf/</li>
+<li>ls</li>
+<li>touch my.cnf</li>
+<li>粘贴配置文件  <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[client]</span><br><span class="line">default<span class="emphasis">_character_</span>set=utf8</span><br><span class="line">[mysqld]</span><br><span class="line">collation<span class="emphasis">_server = utf8_</span>general<span class="emphasis">_ci</span></span><br><span class="line"><span class="emphasis">character_</span>set<span class="emphasis">_server = utf8</span></span><br></pre></td></tr></table></figure></li>
+<li>查看配置文件    <ul>
+<li>cat my.cnf</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>重启mysql容器实例再重新进入并查看字符编码<ol>
+<li>docker restart mysql</li>
+<li>docker exec -it mysql /bin/bash</li>
+<li>mysql -uroot -p   </li>
+<li>SHOW VARIABLES LIKE ‘character%’;</li>
+</ol>
+</li>
+<li>再新建库建表再插入中文测试<ol>
+<li>连接数据库<ul>
+<li>mysql -uroot -p</li>
+</ul>
+</li>
+<li>创建数据库db02<ul>
+<li>create database db02;</li>
+</ul>
+</li>
+<li>使用db02数据库<ul>
+<li>use db02;</li>
+</ul>
+</li>
+<li>创建bb表<ul>
+<li>create table bb(id int, name varchar(20));</li>
+</ul>
+</li>
+<li>插入数据<ul>
+<li>insert into bb values(9, ‘李四’);</li>
+</ul>
+</li>
+<li>查询bb表数据<ul>
+<li>select * from bb;</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>结论<ol>
+<li>docker安装完MySQL并run出容器后，建议请先修改完字符集编码后再新建mysql库-表-插数据<ol>
+<li>之前的DB  无效</li>
+<li>修改字符集操作+重启mysql容器实例</li>
+<li>之后的DB  有效，需要新建</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>假设当前容器实例删除，再重新来一次，之前键的db01实例还有吗？</li>
+</ol>
+<h4 id="7-4-安装redis"><a href="#7-4-安装redis" class="headerlink" title="7.4 安装redis"></a>7.4 安装redis</h4><ol>
+<li>从docker hub上拉取redis镜像到本地，标签为6.0.8<ol>
+<li>docker pull redis:6.0.8</li>
+</ol>
+</li>
+<li>入门命令<ol>
+<li>启动<ul>
+<li>docker run -d -p 6379:6379 redis:6.0.8</li>
+</ul>
+</li>
+<li>命令行进入容器<ul>
+<li>docker exec -it 容器id /bin/bash</li>
+</ul>
+</li>
+<li>连接客户端<ul>
+<li>redis-cli</li>
+</ul>
+</li>
+<li>设置值<ul>
+<li>set k1 v1</li>
+</ul>
+</li>
+<li>获取值<ul>
+<li>get k1</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><span style="color:red">命令提醒：容器卷记得加入 –privileged=true</span></li>
+<li>在centOS宿主机下新建目录/xiol/redis<ol>
+<li>mikdir -p /xiol/redis</li>
+</ol>
+</li>
+<li>将redis.conf文件模板拷贝进/xiol/redis目录下<ol>
+<li>创建redis.conf文件(原始配置文件)</li>
+</ol>
+</li>
+<li><span style="color:red">使用redis6.0.8镜像创建容器</span><ol>
+<li> docker run  -p 6379:6379 –name myredis1 –privileged=true -v /xiol/redis/redis.conf:/etc/redis/redis.conf -v /xiol/redis/data:/data -d redis:6.0.8 redis-server /etc/redis/redis.conf</li>
+<li>查看<ul>
+<li>docker ps</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>测试redis-cli连接起来<ol>
+<li>docker exec -it myredis1 /bin/bash</li>
+<li>redis-cli</li>
+<li>set k1 v1</li>
+<li>get k1</li>
+<li>select 15</li>
+<li>exit</li>
+<li>exit</li>
+</ol>
+</li>
+<li>请证明docker启动使用了我们指定的配置文件<ol>
+<li>进入宿主机/xiol/redis<ul>
+<li>cd /xiol/redis</li>
+</ul>
+</li>
+<li>修改 redis.conf文件，设置数据库为10个<ul>
+<li>databases 10</li>
+</ul>
+</li>
+<li>重启redis<ul>
+<li>docker restart myredis1</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>测试redis-cli连接上来第2次<ol>
+<li>docker exec -it myredis1 /bin/bash</li>
+<li>redis-cli</li>
+<li>select 9</li>
+<li>select 10</li>
+<li>select 15</li>
+</ol>
+</li>
+</ol>
+<h4 id="7-5-安装nginx"><a href="#7-5-安装nginx" class="headerlink" title="7.5 安装nginx"></a>7.5 安装nginx</h4><h2 id="高级篇"><a href="#高级篇" class="headerlink" title="高级篇"></a>高级篇</h2><h3 id="8-Docker复杂安装详说"><a href="#8-Docker复杂安装详说" class="headerlink" title="8. Docker复杂安装详说"></a>8. Docker复杂安装详说</h3><h3 id="9-DockerFile解析"><a href="#9-DockerFile解析" class="headerlink" title="9. DockerFile解析"></a>9. DockerFile解析</h3><h3 id="10-Docker微服务实战"><a href="#10-Docker微服务实战" class="headerlink" title="10. Docker微服务实战"></a>10. Docker微服务实战</h3><h3 id="11-Docker网络"><a href="#11-Docker网络" class="headerlink" title="11. Docker网络"></a>11. Docker网络</h3><h3 id="12-Docker-compose容器编排"><a href="#12-Docker-compose容器编排" class="headerlink" title="12. Docker-compose容器编排"></a>12. Docker-compose容器编排</h3><h3 id="13-Docker轻量级可视化工具Portainer"><a href="#13-Docker轻量级可视化工具Portainer" class="headerlink" title="13. Docker轻量级可视化工具Portainer"></a>13. Docker轻量级可视化工具Portainer</h3><h3 id="14-Docker容器监控之-CAdvisior-InfluxDB-Granfana"><a href="#14-Docker容器监控之-CAdvisior-InfluxDB-Granfana" class="headerlink" title="14. Docker容器监控之 CAdvisior+InfluxDB+Granfana"></a>14. Docker容器监控之 CAdvisior+InfluxDB+Granfana</h3><h3 id="15-终章和总结"><a href="#15-终章和总结" class="headerlink" title="15. 终章和总结"></a>15. 终章和总结</h3>
       
 
       
